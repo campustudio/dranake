@@ -17,18 +17,18 @@ const CustomerHeader = class extends Component {
 
   render() {
     return (
-      <div className="header header-container">
-        <div>
+      <header className="header header-container">
+        <section>
           <img src={logo} alt="logo" style={{ width: 30, margin: '0px 10px' }} />
           <span style={{ color: '#fff' }}>车件儿</span>
-        </div>
-        <div>
+        </section>
+        <section>
           <span>{`账号：${localStorage.getItem('mobile') || ''}`}</span>
           <span onClick={this.logout} onKeyPress={this.logout} style={{ margin: '0px 20px', color: 'blue' }}>
             退出
           </span>
-        </div>
-      </div>
+        </section>
+      </header>
     );
   }
 };
