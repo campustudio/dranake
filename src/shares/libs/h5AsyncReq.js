@@ -1,3 +1,5 @@
+import { message } from 'antd';
+
 function handleAwaitRes(res) {
   if (res.status === 200) {
     return res.json();
@@ -12,7 +14,7 @@ function handleAwaitRes(res) {
       throw new Error('系统服务器异常，请联系客服人员');
     }
   } catch (err) {
-    alert(err.toString());
+    message.error(err.toString());
   }
 
   return null;

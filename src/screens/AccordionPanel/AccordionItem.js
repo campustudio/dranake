@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import apis from '@apis';
+import '../screen.less';
 
 const paths = [
   '/main/award-activity',
@@ -19,10 +20,14 @@ class AccordionItem extends Component {
               style={{ fontSize: 12 }}
               key={idx}
             >
-              {item.eventName}
-              {item.startAt ? new Date(item.startAt).toLocaleDateString() : ''}
-              {' ~ '}
-              {item.startAt ? new Date(item.startAt).toLocaleDateString() : ''}
+              <div className="flex-jcsb">
+                <span>{item.eventName}</span>
+                <span>
+                  {item.startAt ? new Date(item.startAt).toLocaleDateString() : ''}
+                  {' ~ '}
+                  {item.startAt ? new Date(item.startAt).toLocaleDateString() : ''}
+                </span>
+              </div>
             </Link>
           ))
         }

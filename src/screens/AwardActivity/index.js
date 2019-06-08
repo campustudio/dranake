@@ -18,15 +18,6 @@ const tabs = [
   { title: '攻略' },
 ];
 
-const rankMapper = {
-  0: 'AA',
-  1: 'A',
-  2: 'B',
-  3: 'C',
-  4: 'D',
-  '-1': '未排名',
-};
-
 const trueFlag = true;
 const falseFlag = false;
 
@@ -53,33 +44,34 @@ export default class AwardActivity extends Component {
       eventId: id,
     });
     console.log('eDetail: ', eDetail);
-    // this.setState({
-    //   event: eDetail.event,
-    //   performance: eDetail.performance,
-    // });
     this.setState({
-      event: {
-        "endAt": 1561687717,
-        "eventId": 1,
-        "eventName": "第一期",
-        "startAt": 1559009317
-      },
-      performance: {
-        "estimatedOnboardMemberReward": 0,
-        "estimatedOnboardUserReward": 0,
-        "onboardMembers": 0,
-        "onboardUsers": 0,
-        "rank": 100,
-        "rankGroup": 1,
-        "totalContribution": 20,
-        "totalOnboardMemberReward": 0,
-        "totalOnboardUserReward": 0
-      },
+      event: eDetail.event,
+      performance: eDetail.performance,
     });
+    // this.setState({
+    //   event: {
+    //     "endAt": 1561687717,
+    //     "eventId": 1,
+    //     "eventName": "第一期",
+    //     "startAt": 1559009317
+    //   },
+    //   performance: {
+    //     "estimatedOnboardMemberReward": 0,
+    //     "estimatedOnboardUserReward": 0,
+    //     "onboardMembers": 0,
+    //     "onboardUsers": 0,
+    //     "rank": 100,
+    //     "rankGroup": 1,
+    //     "totalContribution": 20,
+    //     "totalOnboardMemberReward": 0,
+    //     "totalOnboardUserReward": 0
+    //   },
+    // });
   }
 
   render() {
     const { event, performance } = this.state;
+    console.log('9090 performance: ', performance);
 
     return (
       <div>
@@ -90,14 +82,14 @@ export default class AwardActivity extends Component {
           </SpinSkeletonContainer>
           <ActivityInfoCard noBlank={trueFlag}>
             <SpinSkeletonContainer dataSrc={performance} height={126} rows={4}>
-              <Performance />
+              <Performance performance={performance} />
             </SpinSkeletonContainer>
           </ActivityInfoCard>
           <WingBlank size="lg">
             <Tabs tabs={tabs} initialPage={0} animated={false} useOnPan={false}>
               <SpinSkeletonContainer dataSrc={performance} rows={4} withBlank={falseFlag}>
                 <div className="tab-item">
-                  <Award />
+                  <Award performance={performance} />
                 </div>
               </SpinSkeletonContainer>
               <div className="tab-item">

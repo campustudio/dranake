@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import { Accordion, List } from 'antd-mobile';
 import apis from '@apis';
 import SpinSkeletonContainer from '@components/SpinSkeletonContainer';
@@ -38,10 +38,6 @@ class AccordionPanel extends Component {
     console.log(key);
   }
 
-  checkInvited = () => {
-    this.props.history.push('/main/invited-users');
-  }
-
   checkActivity = () => {
     this.props.history.push('/main/award-activity');
   }
@@ -54,7 +50,7 @@ class AccordionPanel extends Component {
     const { eventsGot } = this.state;
 
     return (
-      <div style={{padding: '0px 15px'}}>
+      <div style={{ padding: '0px 15px' }}>
         <div
           onClick={this.inviteFriends}
           onKeyPress={this.inviteFriends}
@@ -66,8 +62,10 @@ class AccordionPanel extends Component {
         <Accordion accordion openAnimation={{}} className="my-accordion" onChange={this.onChange}>
           <Accordion.Panel header="拓展管理 - 永久锁粉">
             <List className="my-list">
-              <List.Item onClick={this.checkInvited}>
-                <span style={{ fontSize: 12 }}>查看受邀用户名单</span>
+              <List.Item>
+                <Link to="/main/invited-users" style={{ fontSize: 12 }}>
+                  查看受邀用户名单
+                </Link>
               </List.Item>
             </List>
           </Accordion.Panel>

@@ -23,11 +23,17 @@ const LoginPanel = class extends Component {
   }
 
   onPhoneChange = (phoneValue) => {
-    console.log('onPhoneChange phoneValue: ', phoneValue);
+    console.log('onPhoneChange phoneValue: ', phoneValue.replace(/\s+/g, ''));
+    this.setState({
+      phoneValue: phoneValue.replace(/\s+/g, ''),
+    });
   }
 
   onCodeChange = (codeValue) => {
     console.log('onCodeChange codeValue: ', codeValue);
+    this.setState({
+      codeValue,
+    });
   }
 
   showCodeGuider = () => {
@@ -47,9 +53,11 @@ const LoginPanel = class extends Component {
     this.setState({
       loading: true,
     });
+    const { phoneValue = '', codeValue = '' } = this.state;
+
     const loginedObj = await apis.login({
-      phoneValue: 15026946018,
-      codeValue: 123456,
+      phoneValue,
+      codeValue,
     });
     console.log('loginedObj: ', loginedObj);
 
@@ -63,11 +71,14 @@ const LoginPanel = class extends Component {
       this.props.history.push('/main');
     } else {
       Toast.fail('登录失败，请确认手机号和校验码', 1);
+      this.setState({
+        loading: false,
+      });
     }
   }
 
   render() {
-    const { loading, guiderVisible } = this.state;
+    const { loading, guiderVisible, phoneValue = '', codeValue = '' } = this.state;
 
     return (
       <div className="login-container">
@@ -104,7 +115,14 @@ const LoginPanel = class extends Component {
             <span onClick={this.showCodeGuider} style={{ textDecoration: 'underline' }}>戳 点此查看</span>
           </div>
           <div className="updown-space">
-            <Button type="primary" onClick={this.onSubmit} loading={loading}>登录</Button>
+            <Button
+              type="primary"
+              onClick={this.onSubmit}
+              loading={loading}
+              disabled={!phoneValue || !codeValue}
+            >
+              登录
+            </Button>
           </div>
         </section>
       </div>

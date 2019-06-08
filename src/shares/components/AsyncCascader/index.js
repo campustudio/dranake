@@ -6,23 +6,6 @@ import CascaderPlate from './CascaderPlate';
 const testUrl = '//jsonplaceholder.typicode.com/posts/';
 
 export default class AsyncCascader extends Component {
-  // static propTypes = {
-  //   fieldNames: PropTypes.object.isRequired,
-  //   optionsUrl: PropTypes.string,
-  //   onCascaderChange: PropTypes.func,
-  //   childrenUrl: PropTypes.string,
-  //   type: PropTypes.string,
-  //   valueUrl: PropTypes.string,
-  // }
-
-  // static defaultProps = {
-  //   optionsUrl: testUrl,
-  //   onCascaderChange: () => {},
-  //   childrenUrl: testUrl,
-  //   type: 'add',
-  //   valueUrl: testUrl,
-  // }
-
   constructor(props) {
     super(props);
     this.state = {
@@ -33,7 +16,7 @@ export default class AsyncCascader extends Component {
   }
 
   componentDidMount = async () => {
-    const { type, fieldNames } = this.props;
+    const { type, fieldNames = {} } = this.props;
     const { value = 'value' } = fieldNames;
     const resOptions = await this.getOptions();
 

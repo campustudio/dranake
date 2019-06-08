@@ -4,7 +4,7 @@ import InvitedUserCard from '@h5components/InvitedUserCard';
 import H5NavBar from '@h5components/H5NavBar';
 import '../screen.less';
 import apis from '@apis';
-import SpinSkeletonContainer from '@components/SpinSkeletonContainer'
+import SpinSkeletonContainer from '@h5components/SpinSkeletonContainer'
 
 export default class InvitedUsers extends Component {
   constructor(props) {
@@ -40,11 +40,11 @@ export default class InvitedUsers extends Component {
       <div>
         <H5NavBar text="受邀用户" />
         <div className="content-container">
-          <SpinSkeletonContainer dataSrc={inviteesGot}>
+          <SpinSkeletonContainer dataSrc={inviteesGot} rows={3}>
             {
               inviteesGot
               && (
-                inviteesGot.map(ele => <InvitedUserCard nickname={ele.nickname} avatarUrl={ele.avatarUrl} />)
+                inviteesGot.map((ele, idx) => <InvitedUserCard nickname={ele.nickname} avatarUrl={ele.avatarUrl} key={idx} />)
               )
             }
           </SpinSkeletonContainer>

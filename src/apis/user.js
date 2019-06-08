@@ -1,5 +1,6 @@
-import { postAwait, getAwait } from '@libs/asyncReq';
+import { postAwait, getAwait } from '@libs/h5AsyncReq';
 import mock from './mock';
+import { message } from 'antd';
 
 export function handleAwaitResObj(resObj) {
   console.log('handleAwaitResObj resObj: ', resObj);
@@ -9,15 +10,15 @@ export function handleAwaitResObj(resObj) {
       return resObj;
     }
     if (resObj.error) {
-      alert(resObj.error + '服务器异常');
+      message.error(resObj.error + '服务器异常');
       return null;
     }
     if (resObj.code && resObj.code !== '200') {
-      alert(resObj.msg);
+      message.error(resObj.msg);
       return null;
     }
     if (resObj.status && resObj.status !== 200) {
-      alert(resObj.message);
+      message.error(resObj.message);
       return null;
     }
 
@@ -41,7 +42,7 @@ const login = async (profile) => {
 
 const logout = async (profile) => {
   console.log('logout profile: ', profile);
-  const logoutResObj = await postAwait('/api/v1/hub/h5/logout', {
+  const logoutResObj = await postAwait('/api/v1/hub/h5/logout', {}, {
     meowToken: profile.token,
   });
   console.log('logoutResObj: ', logoutResObj);
@@ -70,14 +71,13 @@ const getEvents = async (profile) => {
 
 const getEDetail = async (profile) => {
   console.log('getEDetail profile: ', profile);
-  const eDetailResObj = await getAwait('/api/v1/hub/h5/performance', {
+  const eDetailResObj = await getAwait(`/api/v1/hub/h5/performance?eventId=${profile.eventId}`, {
     meowToken: profile.token,
-    eventId: profile.eventId,
   });
   console.log('eDetailResObj: ', eDetailResObj);
-  const eDetail = handleAwaitResObj(eDetailResObj);
+  const eDetail = handleAwaitResObj(eDetailResObj) || {};
 
-  return eDetail || {};
+  return eDetail.detail || {};
 };
 
 export default {

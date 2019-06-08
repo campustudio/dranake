@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // import './index.less';
+import AsyncCascader from '@components/AsyncCascader';
 
 export default class Promoters extends Component {
   constructor(props) {
@@ -13,6 +14,7 @@ export default class Promoters extends Component {
     return (
       <div>
         Promoters Table
+        <AsyncCascader />
       </div>
     );
   }
