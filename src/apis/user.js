@@ -1,6 +1,7 @@
 import { postAwait, getAwait } from '@libs/h5AsyncReq';
 // import mock from './mock';
 import { message } from 'antd';
+import { GET_USERS } from '@constants/api';
 
 export function handleAwaitResObj(resObj) {
   console.log('handleAwaitResObj resObj: ', resObj);

@@ -20,7 +20,7 @@ class App extends Component {
     return (
       <Provider store={store}>
         <ConnectedRouter history={history}>
-          <BrowserRouter basename="/rspa/auth">
+          <BrowserRouter basename="/rspa/msh5">
             <Switch>
               <Route exact path="/" component={LoginPanel} />
               <Route path="/main" component={H5Main} />
