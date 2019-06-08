@@ -34,6 +34,7 @@ export default class InvitedUsers extends Component {
 
   render() {
     const { inviteesGot } = this.state;
+    console.log('inviteesGot: ', inviteesGot);
 
     return (
       <div>

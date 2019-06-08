@@ -15,7 +15,7 @@ export default class H5Main extends Component {
             <Switch>
               <Route exact path="/main" component={Home} />
               <Route exact path="/main/invited-users" component={InvitedUsers} />
-              <Route exact path="/main/award-activity" component={AwardActivity} />
+              <Route exact path="/main/award-activity/:id" component={AwardActivity} />
               <Route component={NotFound} />
             </Switch>
           </div>

@@ -10,14 +10,27 @@ const ActivityInfoCard = class extends Component {
   }
 
   render() {
-    const { size = 'lg', children } = this.props;
+    const { size = 'lg', children, noBlank = false } = this.props;
 
     return (
-      <WingBlank size={size}>
-        <WhiteSpace size={size} />
-        {children}
-        <WhiteSpace size={size} />
-      </WingBlank>
+      <div>
+        {
+          noBlank
+            ? (
+              <div>
+                <WhiteSpace size={size} />
+                {children}
+                <WhiteSpace size={size} />
+              </div>
+            ) : (
+              <WingBlank size={size}>
+                <WhiteSpace size={size} />
+                {children}
+                <WhiteSpace size={size} />
+              </WingBlank>
+            )
+        }
+      </div>
     );
   }
 };

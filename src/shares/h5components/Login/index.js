@@ -97,7 +97,7 @@ const LoginPanel = class extends Component {
           </div>
           <div className="white-f">*需要与登录快成团小程序的手机号码一致</div>
           <div className="updown-space">
-            <NumberInput placeholder="请输入6位校验码" label="校验码" onChange={this.onCodeChange} />
+            <NumberInput maxLength={6} placeholder="请输入6位校验码" label="校验码" onChange={this.onCodeChange} />
           </div>
           <div className="white-f">
             *校验码获取方式？

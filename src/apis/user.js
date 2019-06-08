@@ -59,8 +59,31 @@ const getInvitees = async (profile) => {
   return inviteesObj.invitees || [];
 };
 
+const getEvents = async (profile) => {
+  const eventsResObj = await getAwait('/api/v1/hub/h5/events', {
+    meowToken: profile.token,
+  });
+  const eventsObj = handleAwaitResObj(eventsResObj);
+
+  return eventsObj.events || [];
+};
+
+const getEDetail = async (profile) => {
+  console.log('getEDetail profile: ', profile);
+  const eDetailResObj = await getAwait('/api/v1/hub/h5/performance', {
+    meowToken: profile.token,
+    eventId: profile.eventId,
+  });
+  console.log('eDetailResObj: ', eDetailResObj);
+  const eDetail = handleAwaitResObj(eDetailResObj);
+
+  return eDetail || {};
+};
+
 export default {
   login,
   logout,
   getInvitees,
+  getEvents,
+  getEDetail,
 };

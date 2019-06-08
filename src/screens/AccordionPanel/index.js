@@ -1,8 +1,39 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Accordion, List } from 'antd-mobile';
+import apis from '@apis';
+import SpinSkeletonContainer from '@components/SpinSkeletonContainer';
+import AccordionItem from './AccordionItem';
 
 class AccordionPanel extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      eventsGot: null,
+    };
+  }
+
+  componentDidMount() {
+    this.getEvents();
+  }
+
+  getEvents = async () => {
+    const eventsGot = await apis.getEvents({
+      token: localStorage.getItem('token'),
+    });
+    console.log('eventsGot: ', eventsGot);
+    this.setState({
+      eventsGot: [
+        {
+          endAt: 1561687717,
+          eventId: 1,
+          eventName: '第一期',
+          startAt: 1559009317
+        }
+      ]
+    });
+  }
+
   onChange = (key) => {
     console.log(key);
   }
@@ -20,26 +51,31 @@ class AccordionPanel extends Component {
   }
 
   render() {
+    const { eventsGot } = this.state;
+
     return (
       <div style={{padding: '0px 15px'}}>
         <div
           onClick={this.inviteFriends}
           onKeyPress={this.inviteFriends}
-          style={{textDecoration:'underline',textAlign:'right'}}>
+          style={{ textDecoration: 'underline', textAlign: 'right' }}
+        >
           邀请好友参加
         </div>
-        <div style={{height:20}}></div>
+        <div style={{ height: 20 }} />
         <Accordion accordion openAnimation={{}} className="my-accordion" onChange={this.onChange}>
           <Accordion.Panel header="拓展管理 - 永久锁粉">
             <List className="my-list">
               <List.Item onClick={this.checkInvited}>
-                <span style={{fontSize:12}}>查看受邀用户名单</span>
+                <span style={{ fontSize: 12 }}>查看受邀用户名单</span>
               </List.Item>
             </List>
           </Accordion.Panel>
           <Accordion.Panel header="推广运营活动" className="pad">
-            <List.Item onClick={this.checkActivity} style={{fontSize:12}}>
-              <span style={{fontSize:12}}>有奖推广活动1 (yy/mm/dd ~ yy/mm/dd)</span>
+            <List.Item>
+              <SpinSkeletonContainer dataSrc={eventsGot}>
+                <AccordionItem items={eventsGot} />
+              </SpinSkeletonContainer>
             </List.Item>
           </Accordion.Panel>
         </Accordion>
