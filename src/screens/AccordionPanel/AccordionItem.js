@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { withRouter, Link } from 'react-router-dom';
-import apis from '@apis';
 import '../screen.less';
 
 const paths = [

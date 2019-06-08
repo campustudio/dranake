@@ -1,6 +1,6 @@
-import { put, takeLatest, call } from 'redux-saga/effects';
+// import { put, takeLatest, call } from 'redux-saga/effects';
 
-import apis from '@apis';
+// import apis from '@apis';
 
 function* workerGetUsersSaga() {
   // const users = yield call(apis.getUsers);

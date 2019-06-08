@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Card, Tabs, WhiteSpace, WingBlank } from 'antd-mobile';
+import { Tabs, WingBlank } from 'antd-mobile';
 import H5NavBar from '@h5components/H5NavBar';
-import AccordionPanel from '../AccordionPanel';
 import Event from './Event';
 import Performance from './Performance';
 import '../screen.less';
