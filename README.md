@@ -11,7 +11,7 @@ yarn start
 yarn build
 ```
 
-## Deploy
+## Static Deploy
 直接举例子：假设nginx静态文件默认目录为系统目录
 `/usr/local/var/www`
 
@@ -53,4 +53,7 @@ location ~ ^/rspa/(?<subapp>\w+)/.* {
 保存并重启nginx，
 然后访问`domain/rspa/msh5`
 即可访问登录页面。
+
+## API Deploy
+在nginx配置文件中添加相应api代理地址，API服务最好与静态资源放到同一域名下，此举可省略跨域配置。
 
