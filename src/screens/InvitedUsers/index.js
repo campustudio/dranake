@@ -28,7 +28,7 @@ export default class InvitedUsers extends Component {
       tempArr.push(inviteesGot[0]);
     }
     this.setState({
-      inviteesGot: tempArr
+      inviteesGot
     });
   }
 

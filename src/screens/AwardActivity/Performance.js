@@ -20,9 +20,9 @@ export default class Performance extends Component {
   render() {
     const { performance = {} } = this.props;
     const {
-      totalContribution = 20000,
-      rank = 10000,
-      rankGroup = 1,
+      totalContribution = 0,
+      rank = 0,
+      rankGroup = -1,
     } = performance;
 
     return (

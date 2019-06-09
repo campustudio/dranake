@@ -14,12 +14,14 @@ export default class Award extends Component {
     const { performance = {} } = this.props;
     console.log('9900 performance: ', performance);
     const {
-      estimatedOnboardUserReward = 99999,
-      onboardUsers = 99999,
-      totalOnboardUserReward = 99999,
-      estimatedOnboardMemberReward = 99999,
-      onboardMembers = 99999,
-      totalOnboardMemberReward = 99999,
+      estimatedOnboardUserReward = 0,
+      onboardUsers = 0,
+      rankGroupPerUserReward = 0,
+      totalOnboardUserReward = 0,
+      estimatedOnboardMemberReward = 0,
+      onboardMembers = 0,
+      totalOnboardMemberReward = 0,
+      eventRewardPool = 0,
     } = performance;
 
     const totalAward = parseInt(estimatedOnboardUserReward, 10)
@@ -47,7 +49,7 @@ export default class Award extends Component {
               </div>
               <div>
                 <div>{`推广人数：${onboardUsers}`}</div>
-                <div>{`奖励：￥${99999}/新用户`}</div>
+                <div>{`奖励：￥${rankGroupPerUserReward}/新用户`}</div>
               </div>
             </Card.Body>
             <Card.Footer content={<span className="blue-font">*评级越高，每个用户奖励的金额越高。</span>} />
@@ -79,7 +81,7 @@ export default class Award extends Component {
               <div style={{ display: 'flex', justifyContent: 'center' }}>
                 <span>
                   资金池金额：
-                  <span className="red-font20">{`￥${99999.99}`}</span>
+                  <span className="red-font20">{`￥${eventRewardPool}`}</span>
                 </span>
               </div>
             </Card.Body>

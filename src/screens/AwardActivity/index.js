@@ -43,9 +43,13 @@ export default class AwardActivity extends Component {
       eventId: id,
     });
     console.log('eDetail: ', eDetail);
+    const { event = {}, performance = {} } = eDetail;
     this.setState({
-      event: eDetail.event,
-      performance: eDetail.performance,
+      event,
+      performance: {
+        ...performance,
+        eventRewardPool: event.eventRewardPool || 0,
+      },
     });
     // this.setState({
     //   event: {

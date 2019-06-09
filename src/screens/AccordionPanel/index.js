@@ -3,7 +3,7 @@ import { withRouter, Link } from 'react-router-dom';
 import { Accordion, List } from 'antd-mobile';
 import apis from '@apis';
 import SpinSkeletonContainer from '@components/SpinSkeletonContainer';
-import AccordionItem from './AccordionItem';
+import AccordionItems from './AccordionItems';
 
 class AccordionPanel extends Component {
   constructor(props) {
@@ -23,14 +23,7 @@ class AccordionPanel extends Component {
     });
     console.log('eventsGot: ', eventsGot);
     this.setState({
-      eventsGot: [
-        {
-          endAt: 1561687717,
-          eventId: 1,
-          eventName: '第一期',
-          startAt: 1559009317
-        }
-      ]
+      eventsGot
     });
   }
 
@@ -72,7 +65,7 @@ class AccordionPanel extends Component {
           <Accordion.Panel header="推广运营活动" className="pad">
             <List.Item>
               <SpinSkeletonContainer dataSrc={eventsGot}>
-                <AccordionItem items={eventsGot} />
+                <AccordionItems items={eventsGot} />
               </SpinSkeletonContainer>
             </List.Item>
           </Accordion.Panel>
