@@ -1,7 +1,13 @@
 import { postAwait, getAwait } from '@libs/h5AsyncReq';
 // import mock from './mock';
 import { message } from 'antd';
-import { GET_USERS } from '@constants/api';
+import {
+  LOGIN,
+  LOGOUT,
+  INVITEES,
+  EVENTS,
+  PERFORMANCE,
+} from '@constants/api';
 
 export function handleAwaitResObj(resObj) {
   console.log('handleAwaitResObj resObj: ', resObj);
@@ -31,7 +37,7 @@ export function handleAwaitResObj(resObj) {
 
 const login = async (profile) => {
   console.log('login profile: ', profile);
-  const loginResObj = await postAwait('/api/v1/hub/h5/login', {
+  const loginResObj = await postAwait(LOGIN, {
     mobile: profile.phoneValue,
     code: profile.codeValue,
   });
@@ -43,7 +49,7 @@ const login = async (profile) => {
 
 const logout = async (profile) => {
   console.log('logout profile: ', profile);
-  const logoutResObj = await postAwait('/api/v1/hub/h5/logout', {}, {
+  const logoutResObj = await postAwait(LOGOUT, {}, {
     meowToken: profile.token,
   });
   console.log('logoutResObj: ', logoutResObj);
@@ -53,7 +59,7 @@ const logout = async (profile) => {
 };
 
 const getInvitees = async (profile) => {
-  const inviteesResObj = await getAwait('/api/v1/hub/h5/invitees', {
+  const inviteesResObj = await getAwait(INVITEES, {
     meowToken: profile.token,
   });
   const inviteesObj = handleAwaitResObj(inviteesResObj) || [];
@@ -62,7 +68,7 @@ const getInvitees = async (profile) => {
 };
 
 const getEvents = async (profile) => {
-  const eventsResObj = await getAwait('/api/v1/hub/h5/events', {
+  const eventsResObj = await getAwait(EVENTS, {
     meowToken: profile.token,
   });
   const eventsObj = handleAwaitResObj(eventsResObj);
@@ -72,7 +78,7 @@ const getEvents = async (profile) => {
 
 const getEDetail = async (profile) => {
   console.log('getEDetail profile: ', profile);
-  const eDetailResObj = await getAwait(`/api/v1/hub/h5/performance?eventId=${profile.eventId}`, {
+  const eDetailResObj = await getAwait(`${PERFORMANCE}?eventId=${profile.eventId}`, {
     meowToken: profile.token,
   });
   console.log('eDetailResObj: ', eDetailResObj);

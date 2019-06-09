@@ -44,8 +44,8 @@
     "react-test-renderer": "^16.5.2"
   },
   "scripts": {
-    "start": "react-app-rewired start",
-    "build:test": "react-app-rewired build",
+    "start": "env-cmd -e development react-app-rewired start",
+    "build:test": "env-cmd -e test react-app-rewired build",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test --env=jsdom",
     "eject": "react-scripts eject",
