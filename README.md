@@ -23,7 +23,12 @@ yarn build
 在此结构下，添加目录：
 `/usr/local/var/www/rspa/msh5`
 
-针对测试环境，将
+针对测试环境，
+首先，项目克隆到服务器后，项目根目录下执行
+`yarn`
+安装所有依赖，
+成功后，
+将
 ```sh
 yarn build:test
 ```
