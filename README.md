@@ -11,7 +11,7 @@ yarn start
 yarn build
 ```
 
-## Deploy(备注：接口地址环境变量目前还未配置完，暂时不建议部署)
+## Deploy
 直接举例子：假设nginx静态文件默认目录为系统目录
 `/usr/local/var/www`
 
