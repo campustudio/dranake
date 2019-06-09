@@ -23,10 +23,10 @@ export default class InvitedUsers extends Component {
       token: localStorage.getItem('token'),
     });
     console.log('inviteesGot: ', inviteesGot);
-    const tempArr = [];
-    for (let i = 0; i < 100; i++) {
-      tempArr.push(inviteesGot[0]);
-    }
+    // const tempArr = [];
+    // for (let i = 0; i < 100; i++) {
+    //   tempArr.push(inviteesGot[0]);
+    // }
     this.setState({
       inviteesGot
     });

@@ -10,7 +10,7 @@ class AccordionItems extends Component {
     return (
       <div>
         {
-          items.map((item, idx) => <Item item={item} idx={idx} />)
+          items.map((item, idx) => <Item item={item} idx={idx} key={idx} />)
         }
       </div>
     );
