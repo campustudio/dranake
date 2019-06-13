@@ -46,19 +46,19 @@ class Sidebar extends React.Component {
           )}
         >
           <Menu.Item key="/main/promoters-manage">H端推广人项目管理</Menu.Item>
-          <Menu.Item key="/pictures-wall">三方产品审核</Menu.Item>
-          <Menu.Item key="/pictures-wall">售后介入</Menu.Item>
+          <Menu.Item key="/main/products-manage">三方产品审核</Menu.Item>
+          <Menu.Item key="/main/post-sales">售后介入</Menu.Item>
         </SubMenu>
         <SubMenu
           key="sub2"
           title={(
             <span>
               <Icon type="block" />
-              <span>Cascader</span>
+              <span>结算管理</span>
             </span>
           )}
         >
-          <Menu.Item key="/two-stage">two stage</Menu.Item>
+          <Menu.Item key="/main/settle-account-verifies">结算审核</Menu.Item>
         </SubMenu>
       </Menu>
     );

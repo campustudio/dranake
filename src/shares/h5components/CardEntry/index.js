@@ -17,7 +17,7 @@ const CardEntry = class extends Component {
                 width: 200,
                 minWidth: 200,
                 cursor: 'pointer',
-                margin: 20,
+                margin: 30,
                 display: 'inline-block',
               }}
               bodyStyle={{
@@ -37,7 +37,7 @@ const CardEntry = class extends Component {
                 width: 200,
                 minWidth: 200,
                 cursor: 'pointer',
-                margin: 20,
+                margin: 30,
                 display: 'inline-block',
               }}
               bodyStyle={{

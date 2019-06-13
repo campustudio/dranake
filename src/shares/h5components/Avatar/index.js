@@ -3,12 +3,12 @@ import { withRouter } from 'react-router-dom';
 
 const Avatar = class extends Component {
   render() {
-    const { size = 40, src = '' } = this.props;
+    const { size = 40, src = '', margin = '0 auto' } = this.props;
 
     const styles = {
       width: size,
       height: size,
-      margin: '0 auto',
+      margin,
       borderRadius: size / 2,
       overflow: 'hidden',
     };

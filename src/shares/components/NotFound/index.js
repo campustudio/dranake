@@ -4,7 +4,7 @@ import { Exception } from 'ant-design-pro';
 const NotFound = () => (
   <Exception
     type="404"
-    redirect="/"
+    redirect="/rspa/msh5/main"
     backText="回到主页"
   />
 );

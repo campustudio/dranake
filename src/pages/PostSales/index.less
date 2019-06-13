@@ -1,19 +1,19 @@
-#content ul {
+.content ul {
 }
 
-#content ul li {
-  margin-right: 20px;
+.content ul li {
+  margin-right: 30px;
   width: 225px;
-  height: 100px;
+  height: 150px;
   float: left;
   list-style-type: none;
 }
 
-#content ul li:last-child {
+.content ul li:last-child {
   margin-right: 0;
 }
 
-#content ul li a {
+.content ul li a {
   position: relative;
   display: block;
   width: 100%;
@@ -23,7 +23,7 @@
   -moz-perspective: 800px;
 }
 
-#content ul li a > p {
+.content ul li a > p {
   position: absolute;
   left: 0;
   height: 0;
@@ -37,26 +37,26 @@
   -webkit-backface-visibility: hidden;
 }
 
-#content ul li a p:first-child {
+.content ul li a p:first-child {
   -webkit-transform: rotateY(0);
   z-index: 2;
 }
 
-#content ul li a p:last-child {
+.content ul li a p:last-child {
   // background: url("images/bg.jpg") no-repeat 0 0;
   -webkit-transform: rotateY(180deg);
   z-index: 1;
 }
 
-#content ul li a:hover p:first-child {
+.content ul li a:hover p:first-child {
   -webkit-transform: rotateY(-180deg);
 }
 
-#content ul li a:hover p:last-child {
+.content ul li a:hover p:last-child {
   -webkit-transform: rotateY(0);
 }
 
-#content ul li a p h3 {
+.content ul li a p h3 {
   margin: 0 auto 15px;
   padding: 15px 0;
   width: 200px;
@@ -67,7 +67,7 @@
   border-bottom: 1px #fff dashed;
 }
 
-#content ul li a p p {
+.content ul li a p p {
   padding: 0 10px;
   font-size: 12px;
   text-indent: 2em;

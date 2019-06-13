@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // import './index.less';
-import PromotersTable from './PromotersTable';
+import ConfigsTable from './ConfigsTable';
 
-export default class Promoters extends Component {
+export default class Configs extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -13,7 +13,7 @@ export default class Promoters extends Component {
   render() {
     return (
       <div>
-        <PromotersTable />
+        <ConfigsTable />
       </div>
     );
   }
