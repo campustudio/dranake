@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './index.less';
 import Home from '@pages/Home';
-import PromotersManege from '@pages/PromotersManege';
+import PromotersManage from '@pages/PromotersManage';
 import Promoters from '@pages/Promoters';
 import Configs from '@pages/Configs';
 import ProductsManage from '@pages/ProductsManage';
@@ -25,7 +25,7 @@ export default class Main extends Component {
           <Sidebar />
           <div className="right-panel">
             <Switch>
-              <Route exact path="/main/promoters-manage" component={PromotersManege} />
+              <Route exact path="/main/promoters-manage" component={PromotersManage} />
               <Route exact path="/main/promoters" component={Promoters} />
               <Route exact path="/main/configs" component={Configs} />
               <Route exact path="/main/products-manage" component={ProductsManage} />

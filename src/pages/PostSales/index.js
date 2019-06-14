@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import CardEntry from '@h5components/CardEntry';
-import './index.less';
-import '../pages.less';
+import CardEntries from '@components/CardEntries';
+
+const entries = [
+  { content: '需要处理的售后申请', path: '/main/post-sale' },
+  { content: '模块2', path: '/main/post-sale' },
+  { content: '模块3', path: '/main/post-sale' },
+];
 
 export default class PostSaleManage extends Component {
   constructor(props) {
@@ -13,14 +16,7 @@ export default class PostSaleManage extends Component {
 
   render() {
     return (
-      <div className="content">
-        <ul>
-          <CardEntry content="需要处理的售后申请" path="/main/post-sale" />
-          <CardEntry content="模块3" path="/main/post-sale" />
-          <CardEntry content="模块4" path="/main/post-sale" />
-          <CardEntry content="模块5" path="/main/post-sale" />
-        </ul>
-      </div>
+      <CardEntries entries={entries} />
     );
   }
 }
