@@ -64,7 +64,7 @@ const LoginPanel = class extends Component {
     console.log('loginedObj: ', loginedObj);
 
     if (loginedObj.status === 0) {
-      localStorage.setItem('mobile', 15026946018);
+      localStorage.setItem('mobile', phoneValue);
       localStorage.setItem('token', loginedObj.meowToken);
       this.setState({
         loading: false,
