@@ -10,6 +10,8 @@ import logo from '@static/media/favicon.ico';
 import intro from '@static/media/nyc.jpeg';
 import apis from '@apis';
 
+const codePic = 'https://miaowuhui-01-1257236255.cos.ap-shanghai.myqcloud.com/wx_images/verification_code.jpg';
+
 const LoginPanel = class extends Component {
   constructor(props) {
     super(props);
@@ -90,7 +92,7 @@ const LoginPanel = class extends Component {
                 <Icon onClick={this.hideCodeGuider} type="cross" color="#fff" />
               </div>
               <div className="code-intro-container">
-                <img src={intro} alt="intro" style={{ width: 264 }} />
+                <img src={codePic} alt="intro" style={{ height: '80%' }} />
               </div>
             </section>
           )
