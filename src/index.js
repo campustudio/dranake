@@ -20,11 +20,11 @@ class App extends Component {
     return (
       <Provider store={store}>
         <ConnectedRouter history={history}>
-          <BrowserRouter basename="/rspa/msh5">
+          <BrowserRouter basename="/event">
             <Switch>
               <Route exact path="/" component={LoginPanel} />
-              {/* <Route path="/main" component={H5Main} /> */}
-              <Route path="/main" component={Main} />
+              <Route path="/main" component={H5Main} />
+              {/* <Route path="/main" component={Main} /> */}
               <Route component={NotFound} />
             </Switch>
           </BrowserRouter>

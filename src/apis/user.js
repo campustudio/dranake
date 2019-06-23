@@ -71,7 +71,7 @@ const getEvents = async (profile) => {
   const eventsResObj = await getAwait(EVENTS, {
     meowToken: profile.token,
   });
-  const eventsObj = handleAwaitResObj(eventsResObj);
+  const eventsObj = handleAwaitResObj(eventsResObj) || {};
 
   return eventsObj.events || [];
 };
