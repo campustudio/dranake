@@ -26,9 +26,9 @@ class Item extends Component {
           <div className="flex-jcsb">
             <span>{eventName}</span>
             <span>
-              {startAt ? new Date(startAt).toLocaleDateString() : ''}
+              {startAt ? new Date(startAt * 1000).toLocaleDateString() : ''}
               {' ~ '}
-              {endAt ? new Date(endAt).toLocaleDateString() : ''}
+              {endAt ? new Date(endAt * 1000).toLocaleDateString() : ''}
             </span>
           </div>
         </Link>

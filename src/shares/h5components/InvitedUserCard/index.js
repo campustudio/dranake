@@ -4,6 +4,13 @@ import { Card, WingBlank, WhiteSpace } from 'antd-mobile';
 import Avatar from '@h5components/Avatar';
 import '../h5c.less';
 
+const subscriptionPackageMapper = {
+  0: '免费用户',
+  1: '一周会员',
+  2: '一月会员',
+  3: '三年会员',
+};
+
 const InvitedUserCard = class extends Component {
   constructor(props) {
     super(props);
@@ -13,7 +20,7 @@ const InvitedUserCard = class extends Component {
 
   render() {
     const {
-      size = 'lg', avatarUrl = 'avatarUrl', nickName = 'nickName', createdAt = 1548847409,
+      size = 'lg', avatarUrl = '', nickName = '', createdAt = 1548847409,
       subscriptionPackage = 2,
     } = this.props;
 
@@ -26,8 +33,8 @@ const InvitedUserCard = class extends Component {
               <div style={{ marginRight: 10 }}><Avatar size={30} src={avatarUrl} /></div>
               <div>
                 <span>{`微信昵称：${nickName}`}</span>
-                <div>{`会员类型：${subscriptionPackage}`}</div>
-                <div>{`注册日期：${new Date(createdAt).toLocaleDateString()}`}</div>
+                <div>{`会员类型：${subscriptionPackageMapper[subscriptionPackage]}`}</div>
+                <div>{`注册日期：${new Date(createdAt * 1000).toLocaleDateString()}`}</div>
               </div>
             </div>
           </Card.Body>

@@ -15,6 +15,7 @@ export default class Event extends Component {
     const { event = {} } = this.props;
     console.log('990 event: ', event);
     const { eventName = '', startAt = 1559009317, endAt = 1561687717 } = event;
+    console.log('startAt: ', startAt);
 
     return (
       <section>
@@ -27,9 +28,9 @@ export default class Event extends Component {
               <div>
                 {
                   `本期活动：
-                  ${new Date(startAt).toLocaleDateString()}
+                  ${new Date(startAt * 1000).toLocaleDateString()}
                     ~ 
-                  ${new Date(endAt).toLocaleDateString()}`
+                  ${new Date(endAt * 1000).toLocaleDateString()}`
                 }
               </div>
             </Card.Body>
