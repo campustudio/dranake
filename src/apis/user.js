@@ -62,7 +62,7 @@ const getInvitees = async (profile) => {
   const inviteesResObj = await getAwait(INVITEES, {
     meowToken: profile.token,
   });
-  const inviteesObj = handleAwaitResObj(inviteesResObj) || [];
+  const inviteesObj = handleAwaitResObj(inviteesResObj) || {};
 
   return inviteesObj.invitees || [];
 };
