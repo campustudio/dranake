@@ -23,8 +23,8 @@ class App extends Component {
           <BrowserRouter basename="/event">
             <Switch>
               <Route exact path="/" component={LoginPanel} />
-              <Route path="/main" component={H5Main} />
-              {/* <Route path="/main" component={Main} /> */}
+              {/* <Route path="/main" component={H5Main} /> */}
+              <Route path="/main" component={Main} />
               <Route component={NotFound} />
             </Switch>
           </BrowserRouter>
