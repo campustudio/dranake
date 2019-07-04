@@ -27,6 +27,7 @@ module.exports = override(
     '@apis': path.resolve(__dirname, 'src/apis/'),
     '@convertors': path.resolve(__dirname, 'src/convertors/'),
     '@pages': path.resolve(__dirname, 'src/pages/'),
+    '@modules': path.resolve(__dirname, 'src/modules/'),
     '@screens': path.resolve(__dirname, 'src/screens/'),
     '@components': path.resolve(__dirname, 'src/shares/components/'),
     '@h5components': path.resolve(__dirname, 'src/shares/h5components/'),

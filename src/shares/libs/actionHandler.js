@@ -1,8 +1,6 @@
-export const dispatchAction = (type, profile) => {
-  return {
-    type,
-    profile,
-  };
-};
+export const dispatchAction = (type, profile) => ({
+  type,
+  profile,
+});
 
 export default dispatchAction;

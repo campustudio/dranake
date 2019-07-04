@@ -4,7 +4,7 @@ const initialState = {
   users: null,
 };
 
-export default function handleUserInfo(state = initialState, action) {
+export default function handleUser(state = initialState, action) {
   switch (action.type) {
     case 'SET_USERS':
       return updateState(state, action, 'users');

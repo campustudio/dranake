@@ -1,0 +1,17 @@
+.header {
+  background: linear-gradient(left top, @primary-color, @primary-color*32);
+  background: -ms-linear-gradient(left top, @primary-color, @primary-color*32);
+  border-bottom: 0px;
+}
+
+.pc-header-container {
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  .header {
+    height: 63px;
+  }
+  .antd-pro-page-header-detail {
+    display: flex;
+  }
+}
