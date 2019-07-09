@@ -8,7 +8,7 @@ yarn start
 
 ## Build
 ```sh
-yarn build
+yarn build:test
 ```
 
 ## Static Deploy
@@ -33,7 +33,7 @@ yarn build
 yarn build:test
 ```
 打包后生成的`build`文件夹中所有资源放入
-`/usr/local/var/www/rspa/msh5`
+`/usr/local/var/www/rspa/shopping`
 目录下。
 ```sh
 cd /usr/local/etc/nginx
@@ -56,7 +56,7 @@ location ~ ^/rspa/(?<subapp>\w+)/.* {
 }
 ```
 保存并重启nginx，
-然后访问`domain/rspa/msh5`
+然后访问`domain/rspa/shopping`
 即可访问登录页面。
 
 ## API Deploy

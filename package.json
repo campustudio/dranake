@@ -57,7 +57,5 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ],
-  "homepage": "https://meow.partai.cn/event/",
-  "proxy": "https://meow.partai.cn/seller"
+  ]
 }
