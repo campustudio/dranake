@@ -8,7 +8,7 @@ import 'promise-polyfill/src/polyfill';
 import store, { history } from './shares/store';
 import * as serviceWorker from './shares/serviceWorker';
 import './index.less';
-import LoginPanel from '@pages/LoginPanel';
+import LoginPanel from '@pages/admin/LoginPanel';
 import Main from './routes/main';
 import H5Main from './routes/h5main';
 import NotFound from '@components/NotFound';

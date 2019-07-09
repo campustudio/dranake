@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './index.less';
-import Home from '@pages/Home';
-import AdminHome from '@pages/AdminHome';
-import PromotersManage from '@pages/PromotersManage';
-import Promoters from '@pages/Promoters';
-import Configs from '@pages/Configs';
-import ProductsManage from '@pages/ProductsManage';
-import ThirdProducts from '@pages/ThirdProducts';
-import PostSales from '@pages/PostSales';
-import PostSale from '@pages/PostSale';
-import SettleAccountVerifies from '@pages/SettleAccountVerifies';
-import Verify from '@pages/Verify';
+import Home from '@pages/admin/Home';
+import AdminHome from '@pages/admin/AdminHome';
+import PromotersManage from '@pages/admin/PromotersManage';
+import Promoters from '@pages/admin/Promoters';
+import Configs from '@pages/admin/Configs';
+import ProductsManage from '@pages/admin/ProductsManage';
+import ThirdProducts from '@pages/admin/ThirdProducts';
+import PostSales from '@pages/admin/PostSales';
+import PostSale from '@pages/admin/PostSale';
+import SettleAccountVerifies from '@pages/admin/SettleAccountVerifies';
+import Verify from '@pages/admin/Verify';
 import Sidebar from '@components/Sidebar';
 import NotFound from '@components/NotFound';
 
@@ -23,7 +23,7 @@ export default class Admin extends Component {
         <Sidebar />
         <div className="right-panel">
           <Switch>
-            <Route exact path="/main/admin" component={AdminHome} />
+            <Route exact path="/main" component={AdminHome} />
             <Route exact path="/main/promoters-manage" component={PromotersManage} />
             <Route exact path="/main/promoters" component={Promoters} />
             <Route exact path="/main/configs" component={Configs} />

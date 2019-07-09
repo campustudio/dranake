@@ -1,0 +1,29 @@
+.shopping-container {
+  position: relative;
+  padding: 45px 0px;
+  height: 100%;
+}
+
+.left-panel {
+  position: fixed;
+  width: 256px;
+  top: 45px;
+  bottom: 0;
+  background-image: url("/static/media/nyc.jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.2;
+}
+
+.right-panel {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  bottom: 0;
+  left: 256px;
+  padding: 20px;
+  background: linear-gradient(45deg, @primary-color*32,  @primary-color*1);
+  background: -ms-linear-gradient(45deg, @primary-color*32,  @primary-color*1);
+  overflow: auto;
+}

@@ -4,7 +4,7 @@ import './index.less';
 import { Switch } from 'antd';
 import { dispatchAction } from '@libs';
 
-class Header extends Component {
+class TaxTypeSwitcher extends Component {
   switchTaxType = (taxIncluded) => {
     console.log('switchTaxType taxIncluded: ', taxIncluded);
     const { dpSwitchTaxType = () => {} } = this.props;
@@ -16,8 +16,7 @@ class Header extends Component {
     console.log('taxIncluded: ', taxIncluded);
 
     return (
-      <div className="pc-header-container">
-        HEADER
+      <div style={{ display: 'inline-block', marginLeft: '10px' }}>
         <Switch checked={taxIncluded} onChange={this.switchTaxType} />
       </div>
     );
@@ -32,4 +31,4 @@ const mapDispatchToProps = dispatch => ({
   dpSwitchTaxType: taxIncluded => dispatch(dispatchAction('SWITCH_TAX_TYPE', taxIncluded)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(TaxTypeSwitcher);

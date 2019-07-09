@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom'; 
-import Header from '@components/CustomerHeader';
+import NavHeader from '@modules/NavHeader';
+import LogoBar from '@modules/LogoBar';
 import Admin from '../admin';
 import Shopping from '../shopping';
 
@@ -34,9 +35,10 @@ class Main extends Component {
 
     return (
       <div style={{ height: '100%' }}>
-        <Header activeRoute={this.activeRoute} />
+        <NavHeader activeRoute={this.activeRoute} />
+        <LogoBar activeRoute={this.activeRoute} />
         {
-          itemType === '/main'
+          itemType.indexOf('/main/shopping') !== -1
             ? (
               <Shopping />
             ) : (

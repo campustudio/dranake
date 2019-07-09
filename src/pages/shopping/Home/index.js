@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import Header from '@modules/Header';
+// import TaxTypeSwitcher from '@modules/TaxTypeSwitcher';
 
 export default class ShoppingHome extends Component {
   render() {
     return (
-      <div>
+      <div style={{ paddingTop: 105 }}>
         ShoppingHome
-        <Header />
+        {/* <TaxTypeSwitcher /> */}
       </div>
     );
   }
