@@ -1,50 +1,59 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom'; 
+import { withRouter } from 'react-router-dom';
 import NavHeader from '@modules/NavHeader';
 import LogoBar from '@modules/LogoBar';
-import Admin from '../admin';
-import Shopping from '../shopping';
+import Shopping from '../shopping'; // 商城子模块
+import Admin from '../admin'; // 管理员子模块
 
+/**
+ * 主模块Main
+ */
 class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      itemType: '/main',
+      itemType: '/main/shopping',
     };
   }
 
   componentDidMount() {
-    console.log('this.props: ', this.props);
-    
+    // console.log('this.props: ', this.props);
+    const { location = {} } = this.props;
+
+    // 服务于浏览器刷新操作
     this.setState({
-      itemType: this.props.location.pathname,
+      itemType: location.pathname,
     });
   }
 
+  // 路由跳转
   activeRoute = (itemType) => {
-    console.log('itemType: ', itemType);
+    // console.log('itemType: ', itemType);
+    const { history = {} } = this.props;
     this.setState({
       itemType,
     }, () => {
-      this.props.history.push(itemType);
+      history.push(itemType);
     });
   }
 
+  // 参照当前路由更新当前需展示的子模块
+  activeModule = (itemType) => {
+    if (itemType.indexOf('/main/shopping') !== -1) {
+      return <Shopping />;
+    }
+
+    return <Admin />;
+  }
+
   render() {
-    const { itemType = 'shopping' } = this.state;
+    const { itemType = '/main/shopping' } = this.state;
 
     return (
       <div style={{ height: '100%' }}>
         <NavHeader activeRoute={this.activeRoute} />
         <LogoBar activeRoute={this.activeRoute} />
-        {
-          itemType.indexOf('/main/shopping') !== -1
-            ? (
-              <Shopping />
-            ) : (
-              <Admin />
-            )
-        }
+        { this.activeModule(itemType) }
       </div>
     );
   }

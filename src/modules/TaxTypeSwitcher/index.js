@@ -16,8 +16,9 @@ class TaxTypeSwitcher extends Component {
     console.log('taxIncluded: ', taxIncluded);
 
     return (
-      <div style={{ display: 'inline-block', marginLeft: '10px' }}>
-        <Switch checked={taxIncluded} onChange={this.switchTaxType} />
+      <div style={{ display: 'inline-block' }}>
+        显示含税价
+        <Switch checked={taxIncluded} onChange={this.switchTaxType} style={{ marginLeft: 5 }} />
       </div>
     );
   }
