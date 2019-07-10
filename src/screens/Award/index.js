@@ -66,7 +66,7 @@ export default class Award extends Component {
                 <div>推荐新用户付会员费拿提成</div>
               </div>
               <div className="flex-jcsb">
-                <span>{`推广付费快成团用户数：${onboardMembers}`}</span>
+                <span>{`推广付费车件儿用户数：${onboardMembers}`}</span>
               </div>
             </Card.Body>
             <Card.Footer content={<span className="blue-font">*可以收取团队运营奖励，活动评级越高，可收取奖励的团队人数越多。</span>} />
@@ -90,9 +90,9 @@ export default class Award extends Component {
         </ActivityInfoCard>
         <ActivityInfoCard>
           <div>说明：</div>
-          <div>*所有奖励请登录快成团小程序领取；</div>
+          <div>*所有奖励请登录车件儿小程序领取；</div>
           <div>*拓展奖励 和 运营奖励 每天结算；</div>
-          <div>*对恶意刷取奖励者，快成团有权撤销奖励；</div>
+          <div>*对恶意刷取奖励者，车件儿有权撤销奖励；</div>
         </ActivityInfoCard>
       </div>
     );

@@ -102,13 +102,13 @@ const LoginPanel = class extends Component {
             <Avatar size={80} src={logo} />
           </div>
           <div className="updown-space title">
-            <div>快成团推广项目</div>
+            <div>车件儿推广项目</div>
             <div>管理系统</div>
           </div>
           <div className="updown-space">
             <PhoneInput onChange={this.onPhoneChange} />
           </div>
-          <div className="white-f">*需要与登录快成团小程序的手机号码一致</div>
+          <div className="white-f">*需要与登录车件儿小程序的手机号码一致</div>
           <div className="updown-space">
             <NumberInput maxLength={6} placeholder="请输入6位校验码" label="校验码" onChange={this.onCodeChange} />
           </div>
