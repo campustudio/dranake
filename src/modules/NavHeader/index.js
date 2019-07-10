@@ -22,8 +22,8 @@ const NavHeader = class extends Component {
 
   render() {
     return (
-      <header className="t-header">
-        <div className="t-header-container">
+      <header className="nav-header">
+        <div className="nav-header-container">
           <section>
             <Bookmark />
             <Divider type="vertical" />
