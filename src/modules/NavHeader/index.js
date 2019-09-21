@@ -24,7 +24,7 @@ const NavHeader = class extends Component {
     return (
       <header className="nav-header">
         <div className="nav-header-container">
-          <section>
+          {/* <section>
             <Bookmark />
             <Divider type="vertical" />
             <ImageLink
@@ -66,7 +66,7 @@ const NavHeader = class extends Component {
               height={25}
               title="会员中心"
             />
-          </section>
+          </section> */}
         </div>
       </header>
     );

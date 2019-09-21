@@ -7,9 +7,6 @@ export default class ShoppingHome extends Component {
       <div style={{ paddingTop: 105 }}>
         <ul>
           <li>
-            <Link to="/main/shopping">ShoppingHome</Link>
-          </li>
-          <li>
             <Link to="/main/shopping/parts">Parts</Link>
           </li>
           <li>

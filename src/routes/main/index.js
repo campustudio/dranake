@@ -50,10 +50,10 @@ class Main extends Component {
     const { itemType = '/main/shopping' } = this.state;
 
     return (
-      <div style={{ height: '100%' }}>
+      <div>
         <NavHeader activeRoute={this.activeRoute} />
-        <LogoBar activeRoute={this.activeRoute} />
-        { this.activeModule(itemType) }
+        {/* <LogoBar activeRoute={this.activeRoute} />
+        { this.activeModule(itemType) } */}
       </div>
     );
   }
