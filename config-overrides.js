@@ -9,16 +9,16 @@ module.exports = override(
     libraryDirectory: 'es',
     style: true,
   }),
-  fixBabelImports('ant-design-pro', {
-    libraryName: 'ant-design-pro',
-    libraryDirectory: 'lib',
-    style: true,
-    camel2DashComponentName: false,
-  }),
   fixBabelImports('antd-mobile', {
     libraryName: 'antd-mobile',
     style: true,
   }),
+  // fixBabelImports('ant-design-pro', {
+  //   libraryName: 'ant-design-pro',
+  //   libraryDirectory: 'lib',
+  //   style: true,
+  //   camel2DashComponentName: false,
+  // }),
   addLessLoader({
     javascriptEnabled: true,
     modifyVars: { '@primary-color': '#108ee9' },

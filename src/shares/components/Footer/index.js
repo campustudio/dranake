@@ -1,6 +1,5 @@
 import React from 'react';
 import './index.less';
-import { GlobalFooter } from 'ant-design-pro';
 import { Icon } from 'antd';
 import logo from '@static/media/favicon.ico';
 
@@ -25,7 +24,7 @@ const copyright = (
 
 const Footer = () => (
   <div className="footer-container">
-    <GlobalFooter links={links} copyright={copyright} />
+    GlobalFooter
   </div>
 );
 
