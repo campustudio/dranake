@@ -21,7 +21,7 @@ yarn build:test
 /usr/local/var/www/50x.html
 ```
 在此结构下，添加目录：
-`/usr/local/var/www/rspa/msh5`
+`/usr/local/var/www/rspa/shopping`
 
 针对测试环境，
 首先，项目克隆到服务器后，项目根目录下执行
