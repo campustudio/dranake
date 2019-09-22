@@ -3,10 +3,10 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
-import 'whatwg-fetch';
-import 'promise-polyfill/src/polyfill';
-import store, { history } from './shares/store';
 import * as serviceWorker from './shares/serviceWorker';
+// import 'whatwg-fetch';
+// import 'promise-polyfill/src/polyfill';
+import store, { history } from './shares/store';
 import './index.less';
 import LoginPanel from '@pages/admin/LoginPanel';
 import Main from './routes/main';
@@ -20,11 +20,11 @@ class App extends Component {
     return (
       <Provider store={store}>
         <ConnectedRouter history={history}>
-          <BrowserRouter basename="/rspa/shopping">
+          <BrowserRouter basename="/rspa/mall">
             <Switch>
               <Route exact path="/" component={LoginPanel} />
-              {/* <Route path="/main" component={H5Main} /> */}
-              <Route path="/main" component={Main} />
+              <Route exact path="/main" component={Main} />
+              {/* <Route exact path="/main" component={H5Main} /> */}
               <Route component={NotFound} />
             </Switch>
           </BrowserRouter>

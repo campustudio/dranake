@@ -21,7 +21,7 @@ yarn build:test
 /usr/local/var/www/50x.html
 ```
 在此结构下，添加目录：
-`/usr/local/var/www/rspa/shopping`
+`/usr/local/var/www/rspa/mall`
 
 针对测试环境，
 首先，项目克隆到服务器后，项目根目录下执行
@@ -33,7 +33,7 @@ yarn build:test
 yarn build:test
 ```
 打包后生成的`build`文件夹中所有资源放入
-`/usr/local/var/www/rspa/shopping`
+`/usr/local/var/www/rspa/mall`
 目录下。
 ```sh
 cd /usr/local/etc/nginx
@@ -56,7 +56,7 @@ location ~ ^/rspa/(?<subapp>\w+)/.* {
 }
 ```
 保存并重启nginx，
-然后访问`domain/rspa/shopping`
+然后访问`domain/rspa/mall`
 即可访问登录页面。
 
 ## API Deploy

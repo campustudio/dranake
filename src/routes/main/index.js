@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import NavHeader from '@modules/NavHeader';
 import LogoBar from '@modules/LogoBar';
-import Shopping from '../shopping'; // 商城子模块
+import Mall from '../mall'; // 商城子模块
 import Admin from '../admin'; // 管理员子模块
 
 /**
@@ -12,12 +12,12 @@ class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      itemType: '/main/shopping',
+      itemType: '/main/mall',
     };
   }
 
   componentDidMount() {
-    // console.log('this.props: ', this.props);
+    // console.log('this.props ', this.props);
     const { location = {} } = this.props;
 
     // 服务于浏览器刷新操作
@@ -28,7 +28,7 @@ class Main extends Component {
 
   // 路由跳转
   activeRoute = (itemType) => {
-    // console.log('itemType: ', itemType);
+    console.log('activeRoute itemType ', itemType);
     const { history = {} } = this.props;
     this.setState({
       itemType,
@@ -37,17 +37,18 @@ class Main extends Component {
     });
   }
 
-  // 参照当前路由更新当前需展示的子模块
+  // 具体路由模块 展示 控制器
+  // 参照当前路由 更新 当前需展示的 路由模块
   activeModule = (itemType) => {
-    if (itemType.indexOf('/main/shopping') !== -1) {
-      return <Shopping />;
+    if (itemType.indexOf('/main/mall') !== -1) {
+      return <Mall />;
     }
 
     return <Admin />;
   }
 
   render() {
-    const { itemType = '/main/shopping' } = this.state;
+    const { itemType = '/main/mall' } = this.state;
 
     return (
       <div>

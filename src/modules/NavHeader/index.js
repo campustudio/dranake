@@ -24,7 +24,7 @@ const NavHeader = class extends Component {
     return (
       <header className="nav-header">
         <div className="nav-header-container">
-          {/* <section>
+          <section>
             <Bookmark />
             <Divider type="vertical" />
             <ImageLink
@@ -37,7 +37,8 @@ const NavHeader = class extends Component {
             <TaxTypeSwitcher />
           </section>
           <section>
-            <span className="mr10px">{`修理厂名称... ${localStorage.getItem('mobile') || '当前用户名'}`}</span>
+            <span>{`修理厂名称... ${localStorage.getItem('mobile') || '当前用户名'}`}</span>
+            <Divider type="vertical" />
             <span>您好! 欢迎光临！</span>
             <Divider type="vertical" />
             <span onClick={this.logout} onKeyPress={this.logout} style={{ color: 'blue', cursor: 'pointer' }}>
@@ -66,7 +67,7 @@ const NavHeader = class extends Component {
               height={25}
               title="会员中心"
             />
-          </section> */}
+          </section>
         </div>
       </header>
     );

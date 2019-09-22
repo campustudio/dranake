@@ -14,7 +14,7 @@ export const ImageLink = class extends Component {
     } = this.props;
 
     return (
-      <Link to={linkPath} style={Object.assign({ lineHeight: height }, outerStyle)}>
+      <Link to={linkPath} style={Object.assign({ 'line-height': height }, outerStyle)}>
         <img src={src} alt="imageLink" width={width} height={height} />
         {
           title

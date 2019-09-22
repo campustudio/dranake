@@ -20,11 +20,11 @@ const LogoBar = class extends Component {
             <small className="white font13">让汽配采购省心、安心、放心</small>
           </span>
           <div className="tab-container">
-            <span><Tab activeRoute={activeRoute} route="/main/shopping" text="首&nbsp;&nbsp;页" /></span>
+            <span><Tab activeRoute={activeRoute} route="/main/mall" text="首&nbsp;&nbsp;页" /></span>
             <span><Tab activeRoute={activeRoute} route="/main" text="会员中心" /></span>
-            <span><Tab activeRoute={activeRoute} route="/main/shopping" text="发布询价" /></span>
-            <span><Tab activeRoute={activeRoute} route="/main/shopping" text="查看询价" /></span>
-            <span onClick={() => activeRoute('/main/shopping')} style={{ color: '#fff' }} className="font16">订单跟踪</span>
+            <span><Tab activeRoute={activeRoute} route="/main/mall" text="发布询价" /></span>
+            <span><Tab activeRoute={activeRoute} route="/main/mall" text="查看询价" /></span>
+            <span onClick={() => activeRoute('/main/mall')} style={{ color: '#fff' }} className="font16">订单跟踪</span>
           </div>
         </section>
       </div>
