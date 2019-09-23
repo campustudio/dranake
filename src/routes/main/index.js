@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import NavHeader from '@modules/NavHeader';
+import Promotion from '@modules/Promotion';
 import LogoBar from '@modules/LogoBar';
+import Inquiry from '@pages/mall/Inquiry';
 import Mall from '../mall'; // 商城子模块
 import Admin from '../admin'; // 管理员子模块
 
@@ -13,6 +15,7 @@ class Main extends Component {
     super(props);
     this.state = {
       itemType: '/main/mall',
+      promotionVisible: true,
     };
   }
 
@@ -48,11 +51,15 @@ class Main extends Component {
   }
 
   render() {
-    const { itemType = '/main/mall' } = this.state;
+    const {
+      itemType = '/main/mall',
+      promotionVisible,
+    } = this.state;
 
     return (
       <div>
         <NavHeader activeRoute={this.activeRoute} />
+        <Inquiry />
         {/* <LogoBar activeRoute={this.activeRoute} />
         { this.activeModule(itemType) } */}
       </div>
