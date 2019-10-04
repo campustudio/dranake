@@ -33,7 +33,7 @@ export default class AsyncCascader extends Component {
       if (this.targetOption) {
         this.targetOption = await this.addChildren(this.targetOption);
       }
-      console.log('type is edit => this.targetOption: ', this.targetOption);
+      // console.log('type is edit => this.targetOption: ', this.targetOption);
     } else {
       console.log('this.targetOption: ', this.targetOption);
     }

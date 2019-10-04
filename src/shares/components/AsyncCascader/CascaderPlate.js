@@ -46,8 +46,8 @@ export default class CascaderPlate extends Component {
       value,
       style,
     } = this.props;
-    console.log('render options: ', options);
-    console.log('render value: ', value);
+    // console.log('render options: ', options);
+    // console.log('render value: ', value);
 
     const basicOptions = {
       options,

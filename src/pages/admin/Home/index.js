@@ -3,43 +3,37 @@ import { connect } from 'react-redux';
 import PicturesWall from '@components/PicturesWall';
 import AsyncCascader from '@components/AsyncCascader';
 
-const testUrl = '//jsonplaceholder.typicode.com/posts/';
-
-const jph = testUrl;
-const optionsUrl = testUrl;
-const childrenUrl = testUrl;
-const valueUrl = testUrl;
+const jsonph = '//jsonplaceholder.typicode.com/posts/';
+let uid = -1; // 设置负数防止与 antd 内部的重合
+function genImgUid() {
+  uid--;
+  return uid;
+}
+function transformPureUrl2Files(urls = []) {
+  return urls.map(x => ({
+    status: 'done',
+    uid: genImgUid(),
+    url: x,
+  }));
+}
 
 export default class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // files: [],
-      files: [
-        'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-      ],
+      files: [], // 要么 [] 要么 得符合antd的数据结构
     };
   }
 
-  transformFiles2PureUrl = (files) => {
-    let pureUrlArr = [];
-    if (files && files instanceof Array) {
-      pureUrlArr = files.map((ele) => {
-        if (ele.url) {
-          return ele.url || '';
-        }
-        if (ele.response && ele.response.url) { // dynamic
-          return ele.response.url || '';
-        }
-        return '';
-      });
-    }
-
-    return pureUrlArr;
+  componentDidMount() {
+    this.setState({
+      files: transformPureUrl2Files([
+        'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+      ]),
+    });
   }
 
-  onFilesChange = (files) => {
-    console.log('filtered files: ', files);
+  onChange = (files) => {
     this.setState({
       files
     });
@@ -51,21 +45,19 @@ export default class Home extends Component {
 
   render() {
     const { files } = this.state;
-    console.log('render files: ', files);
 
     return (
       <div>
         <PicturesWall
-          action={jph}
-          onFilesChange={this.onFilesChange}
-          transformFiles2PureUrl={this.transformFiles2PureUrl}
-          isMultiple
+          files={files}
+          onChange={this.onChange}
+          action={jsonph}
         />
         <AsyncCascader
           fieldNames={{ label: 'id', value: 'id' }}
-          optionsUrl={optionsUrl}
-          childrenUrl={childrenUrl}
-          valueUrl={valueUrl}
+          optionsUrl={jsonph}
+          childrenUrl={jsonph}
+          valueUrl={jsonph}
           type="edit"
         />
       </div>
