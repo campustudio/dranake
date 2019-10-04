@@ -61,7 +61,7 @@ class Main extends Component {
         <NavHeader activeRoute={this.activeRoute} />
         <Inquiry />
         {/* <LogoBar activeRoute={this.activeRoute} /> */}
-        { this.activeModule(itemType) }
+        {/* { this.activeModule(itemType) } */}
       </div>
     );
   }

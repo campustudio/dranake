@@ -87,7 +87,12 @@ export default class PicturesWall extends Component {
 
   render() {
     const { previewVisible, previewImage } = this.state;
-    const { files = [], action = '' } = this.props;
+    const {
+      files = [],
+      action = '',
+      showLabel,
+      limit = 3,
+    } = this.props;
     const props = {
       listType: 'picture-card',
       multiple: true,
@@ -105,12 +110,12 @@ export default class PicturesWall extends Component {
       <Fragment>
         <Upload {...props}>
           {
-            files.length >= 3
+            files.length >= limit
               ? null
               : (
                 <div>
                   <Icon type="plus" />
-                  <div className="ant-upload-text">上传图片</div>
+                  { showLabel && <div className="ant-upload-text">上传图片</div> }
                 </div>
               )
           }
