@@ -104,7 +104,7 @@ export default class PicturesWall extends Component {
       beforeUpload: this.beforeUploadImage,
     };
 
-    console.log('render files: ', files);
+    // console.log('render files: ', files);
 
     return (
       <Fragment>

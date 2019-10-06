@@ -18,9 +18,16 @@ import {
   Table,
   Divider,
   Tag,
+  Input,
 } from 'antd';
 import PicturesWall from '@components/PicturesWall';
 import ItemList from './ItemList';
+import VinParser from './VinParser';
+import InsuranceOrder from './InsuranceOrder';
+import Invoice from './Invoice';
+import Vendors from './Vendors';
+
+const { Option } = Select;
 
 const formItemLayout = {
   labelCol: { span: 6 },
@@ -81,8 +88,27 @@ class PublishInquiry extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      files: [], // 要么 [] 要么 得符合antd的数据结构
+      photos: [], // 要么 [] 要么 得符合antd的数据结构
       partList: [],
+      vinCode: '',
+      // vinCode: '83746593748273468',
+      carInfoObj: {
+        carBrand: '',
+      },
+      insuranceInfoObj: {
+        isInsurance: 0,
+        insuranceCaseNo: '',
+      },
+      invoiceInfoObj: {
+        isInvoiceRequired: 0,
+        id: -1,
+        invoiceType: 1,
+        invoiceCompanyName: '佛山金利',
+      },
+      vendorsInfoObj: {
+        vendorType: 1,
+        vendorCompanyList: [],
+      },
     };
   }
 
@@ -113,9 +139,9 @@ class PublishInquiry extends Component {
     return e && e.fileList;
   };
 
-  onChange = (files) => {
+  onChange = (photos) => {
     this.setState({
-      files
+      photos
     });
   }
 
@@ -132,8 +158,57 @@ class PublishInquiry extends Component {
     this.setState({ partList });
   }
 
+  onVinCodeChange = (vinCode) => {
+    console.log('vinCode: ', vinCode);
+    this.setState({ vinCode });
+  }
+
+  onCarInfoChange = (carInfoObj) => {
+    this.setState({ carInfoObj });
+  }
+
+  onInsuranceInfoChange = (changedObj) => {
+    console.log('changedObj: ', changedObj);
+    const { insuranceInfoObj = {} } = this.state;
+    this.setState({
+      insuranceInfoObj: {
+        ...insuranceInfoObj,
+        ...changedObj,
+      },
+    });
+  }
+  
+  onInvoiceInfoChange = (changedObj) => {
+    const { invoiceInfoObj = {} } = this.state;
+    this.setState({
+      invoiceInfoObj: {
+        ...invoiceInfoObj,
+        ...changedObj,
+      },
+    });
+  }
+
+  onVendorsInfoChange = (changedObj) => {
+    const { vendorsInfoObj = {} } = this.state;
+    this.setState({
+      vendorsInfoObj: {
+        ...vendorsInfoObj,
+        ...changedObj,
+      },
+    });
+  }
+
   render() {
-    const { submitLoading, files, partList } = this.state;
+    const {
+      submitLoading,
+      photos,
+      partList,
+      vinCode,
+      carInfoObj,
+      insuranceInfoObj,
+      invoiceInfoObj,
+      vendorsInfoObj,
+    } = this.state;
     const { form } = this.props;
     const { getFieldDecorator, getFieldsError } = form;
 
@@ -156,13 +231,26 @@ class PublishInquiry extends Component {
             </Radio.Group>,
           )}
         </Form.Item>
+        <Form.Item label="VIN码">
+          {getFieldDecorator('vinCode', {
+            rules: [{ required: true }],
+          })(
+            <VinParser
+              vehicleType="01"
+              vinCode={vinCode}
+              onVinCodeChange={this.onVinCodeChange}
+              carInfoObj={carInfoObj}
+              onCarInfoChange={this.onCarInfoChange}
+            />,
+          )}
+        </Form.Item>
         <Form.Item label="车辆照片" extra="最多上传3张">
           {getFieldDecorator('photos', {
             valuePropName: 'fileList',
             getValueFromEvent: this.normFile,
           })(
             <PicturesWall
-              files={files}
+              files={photos}
               onChange={this.onChange}
               action={jsonph}
             />,
@@ -170,6 +258,17 @@ class PublishInquiry extends Component {
         </Form.Item>
         <Form.Item wrapperCol={{ offset: 3 }}>
           <h3>案件信息</h3>
+        </Form.Item>
+        <Form.Item label="保险单">
+          {getFieldDecorator('isInsurance', {
+            rules: [{ required: true }],
+            initialValue: 0,
+          })(
+            <InsuranceOrder
+              insuranceInfoObj={insuranceInfoObj}
+              onInsuranceInfoChange={this.onInsuranceInfoChange}
+            />
+          )}
         </Form.Item>
         <Form.Item wrapperCol={{ offset: 3 }}>
           <h3>配件信息</h3>
@@ -183,16 +282,75 @@ class PublishInquiry extends Component {
         <Form.Item wrapperCol={{ offset: 3 }}>
           <h3>其它要求</h3>
         </Form.Item>
+        <Form.Item label="发票信息">
+          {getFieldDecorator('isInvoiceRequired', {
+            rules: [{ required: true }],
+            initialValue: 0,
+          })(
+            <Invoice
+              invoiceInfoObj={invoiceInfoObj}
+              onInvoiceInfoChange={this.onInvoiceInfoChange}
+            />
+          )}
+        </Form.Item>
+        <Form.Item label="供应商">
+          {getFieldDecorator('vendorType', {
+            rules: [{ required: true }],
+            initialValue: 1,
+          })(
+            <Vendors
+              vendorsInfoObj={vendorsInfoObj}
+              onVendorsInfoChange={this.onVendorsInfoChange}
+            />
+          )}
+        </Form.Item>
+        <Form.Item label="期望到货时间">
+          {getFieldDecorator('expectedDay', {
+            rules: [{ required: true }],
+            initialValue: -1,
+          })(
+            <Select style={{ width: 200 }}>
+              <Option value={-1}>不限</Option>
+            </Select>
+          )}
+        </Form.Item>
         <Form.Item wrapperCol={{ offset: 3 }}>
           <h3>联系方式</h3>
         </Form.Item>
-        <Form.Item wrapperCol={{ span: 12, offset: 6 }}>
+        <Form.Item label="联系人">
+          {getFieldDecorator('contactPerson', {
+            initialValue: '',
+          })(
+            <Input
+              style={{ width: 200 }}
+              placeholder="请输入联系人"
+            />
+          )}
+        </Form.Item>
+        <Form.Item label="联系电话">
+          {getFieldDecorator('contactPhone', {
+            initialValue: '',
+          })(
+            <Input
+              style={{ width: 200 }}
+              placeholder="请输入电话"
+            />
+          )}
+        </Form.Item>
+        <Form.Item wrapperCol={{ span: 12, offset: 12 }}>
           <Button
             loading={submitLoading}
             htmlType="submit"
             disabled={hasErrors(getFieldsError())}
+            type="primary"
           >
             发布询价
+          </Button>
+          <Button
+            htmlType="submit"
+            style={{ marginLeft: 20 }}
+          >
+            保存草稿
           </Button>
         </Form.Item>
       </Form>
