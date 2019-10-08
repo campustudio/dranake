@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { Component } from 'react';
 import {
   Table,
@@ -69,8 +70,8 @@ export default class ItemList extends Component {
         render: (text, record, index) => (
           <div className="item-upload-image">
             <PicturesWall
-              files={record.photo ? [record.photo] : []}
-              onChange={(fileList = ['']) => this.onItemChange({ photo: fileList[0] }, index)}
+              files={record.photos || []}
+              onChange={(fileList = ['']) => this.onItemChange({ photos: fileList }, index)}
               action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
               limit={1}
             />
@@ -80,9 +81,9 @@ export default class ItemList extends Component {
       {
         title: '操作',
         key: 'action',
-        render: (text, record) => (
+        render: (text, record, index) => (
           <span>
-            <a>删除</a>
+            <a onClick={() => this.onItemChange(null, index)}>删除</a>
           </span>
         ),
       },
@@ -94,8 +95,27 @@ export default class ItemList extends Component {
     onItemListChange(changedObj, index);
   }
 
+  handleAdd = () => {
+    const { itemList } = this.props;
+
+    const newData = {
+      key: parseInt(itemList.length, 10) + 1 + '',
+      name: 'Joe Black4',
+      age: 342,
+      address: 'Sidney No. 1 Lake Park4',
+      tags: ['cool', 'teacher'],
+      standardPartName: '大灯34',
+      // oeCode: '90892111221',
+      oldNewMatchupList: [6, 2],
+    };
+
+    const { onItemListChange = () => {} } = this.props;
+    onItemListChange([...itemList, newData]);
+  };
+
   render() {
     const { itemList } = this.props;
+    console.log('itemList: ', itemList);
 
     return (
       <Table
@@ -110,7 +130,8 @@ export default class ItemList extends Component {
             </div>
           )
         }
-        footer={() => 'Footer'}
+        footer={() => <a onClick={this.handleAdd}>继续添加配件</a>}
+        pagination={false}
       />
     );
   }

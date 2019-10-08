@@ -6,7 +6,7 @@ export default class OeInput extends Component {
     super(props);
     this.state = {
     };
-    this.oeCode = this.props.oeCode;
+    this.oeCode = this.props.oeCode || '';
   }
 
   handleChange = (e) => {
@@ -24,7 +24,7 @@ export default class OeInput extends Component {
     return (
       <section>
         <Input
-          disabled={this.oeCode}
+          disabled={this.oeCode !== ''}
           value={oeCode}
           placeholder="请输入原厂零件号"
           onChange={this.handleChange}

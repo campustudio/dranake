@@ -5,6 +5,7 @@ import priceReducer from './price';
 import garageReducer from './garage';
 import cartReducer from './cart';
 import msgReducer from './msg';
+import inquiryReducer from './inquiry';
 
 export default combineReducers({
   userReducer,
@@ -12,4 +13,5 @@ export default combineReducers({
   garageReducer,
   cartReducer,
   msgReducer,
+  inquiryReducer,
 });

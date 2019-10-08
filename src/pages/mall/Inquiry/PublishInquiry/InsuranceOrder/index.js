@@ -51,7 +51,7 @@ class InsuranceOrder extends Component {
                     style={{ width: 80 }}
                     placeholder="前三位"
                     onChange={this.handleChange}
-                    maxLength="3"
+                    maxLength={3}
                   />,
                 )}
               </Form.Item>
@@ -63,7 +63,7 @@ class InsuranceOrder extends Component {
                     style={{ width: 80 }}
                     placeholder="前三位"
                     onChange={this.handleChange}
-                    maxLength="3"
+                    maxLength={3}
                   />,
                 )}
               </Form.Item>
@@ -75,7 +75,7 @@ class InsuranceOrder extends Component {
                     style={{ width: 80 }}
                     placeholder="前三位"
                     onChange={this.handleChange}
-                    maxLength="3"
+                    maxLength={3}
                   />,
                 )}
                 {getFieldDecorator('insuranceCaseNoPart3', {
@@ -85,7 +85,7 @@ class InsuranceOrder extends Component {
                     style={{ width: 150 }}
                     placeholder="后八位"
                     onChange={this.handleChange}
-                    maxLength="8"
+                    maxLength={8}
                   />,
                 )}
               </Form.Item>
@@ -97,7 +97,7 @@ class InsuranceOrder extends Component {
                     style={{ width: 80 }}
                     placeholder="前三位"
                     onChange={this.handleChange}
-                    maxLength="3"
+                    maxLength={3}
                   />,
                 )}
               </Form.Item>

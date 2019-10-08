@@ -74,7 +74,7 @@ export default class VinParser extends Component {
             value={vinCode}
             placeholder="请输入VIN码"
             onChange={this.handleChange}
-            maxLength="17"
+            maxLength={17}
           />
           {
             vcl === 17

@@ -41,8 +41,8 @@ export default class PartSearchInput extends Component {
       fetching: false,
       data: [],
     }, () => {
-      const { onPartChange = () => {} } = this.props;
-      onPartChange({
+      const { onItemChange = () => {} } = this.props;
+      onItemChange({
         standardPartName,
       });
     });

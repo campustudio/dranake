@@ -19,7 +19,8 @@ export default class Invoice extends Component {
 
   render() {
     const { invoiceInfoObj = {} } = this.props;
-    const { isInvoiceRequired = 0, invoiceType, invoiceCompanyName } = invoiceInfoObj;
+    const { isInvoiceRequired = 0, invoice = {} } = invoiceInfoObj;
+    const { invoiceType, invoiceCompanyName } = invoice;
     const { imVisible } = this.state;
 
     return (
