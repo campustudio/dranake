@@ -3,6 +3,8 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
+import { ConfigProvider } from 'antd';
+import zhCN from 'antd/es/locale/zh_CN';
 import * as serviceWorker from './shares/serviceWorker';
 // import 'whatwg-fetch';
 // import 'promise-polyfill/src/polyfill';
@@ -18,18 +20,20 @@ const rootElement = document.getElementById('root');
 class App extends Component {
   render() {
     return (
-      <Provider store={store}>
-        <ConnectedRouter history={history}>
-          <BrowserRouter basename="/rspa/mall">
-            <Switch>
-              <Route exact path="/" component={LoginPanel} />
-              <Route exact path="/main" component={Main} />
-              {/* <Route exact path="/main" component={H5Main} /> */}
-              <Route component={NotFound} />
-            </Switch>
-          </BrowserRouter>
-        </ConnectedRouter>
-      </Provider>
+      <ConfigProvider locale={zhCN}>
+        <Provider store={store}>
+          <ConnectedRouter history={history}>
+            <BrowserRouter basename="/rspa/mall">
+              <Switch>
+                <Route exact path="/" component={LoginPanel} />
+                <Route exact path="/main" component={Main} />
+                {/* <Route exact path="/main" component={H5Main} /> */}
+                <Route component={NotFound} />
+              </Switch>
+            </BrowserRouter>
+          </ConnectedRouter>
+        </Provider>
+      </ConfigProvider>
     );
   }
 }

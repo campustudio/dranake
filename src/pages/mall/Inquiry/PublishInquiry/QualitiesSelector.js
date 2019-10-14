@@ -24,22 +24,27 @@ export default class QualitiesSelector extends Component {
   };
 
   render() {
-    const { oldNewMatchupList } = this.props;
+    const { oldNewMatchupList = [] } = this.props;
 
     return (
-      <Select
-        mode="multiple"
-        style={{ width: '100%' }}
-        placeholder="Please select"
-        onChange={this.handleChange}
-        value={oldNewMatchupList}
-      >
+      <section>
+        <Select
+          mode="multiple"
+          style={{ width: '100%' }}
+          placeholder="请选择配件品质"
+          onChange={this.handleChange}
+          value={oldNewMatchupList}
+        >
+          {
+            qualities.map(q => (
+              <Option key={q.oldNewMatchupList} value={q.oldNewMatchupList}>{q.label}</Option>
+            ))
+          }
+        </Select>
         {
-          qualities.map(q => (
-            <Option key={q.oldNewMatchupList} value={q.oldNewMatchupList}>{q.label}</Option>
-          ))
+          oldNewMatchupList.length === 0 && <span style={{ color: 'red' }}>请选择配件品质！</span>
         }
-      </Select>
+      </section>
     );
   }
 }

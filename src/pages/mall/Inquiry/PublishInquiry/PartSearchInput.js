@@ -53,21 +53,26 @@ export default class PartSearchInput extends Component {
     const { standardPartName } = this.props;
 
     return (
-      <Select
-        value={standardPartName}
-        showSearch
-        showArrow={false}
-        placeholder="请输入配件名称"
-        notFoundContent={fetching ? <Spin size="small" /> : null}
-        filterOption={false}
-        onSearch={this.fetchUser}
-        onChange={this.handleChange}
-        style={{ width: '100%' }}
-      >
-        {data.map(d => (
-          <Option key={d.value}>{d.text}</Option>
-        ))}
-      </Select>
+      <section>
+        <Select
+          value={standardPartName}
+          showSearch
+          showArrow={false}
+          placeholder="请输入配件名称"
+          notFoundContent={fetching ? <Spin size="small" /> : null}
+          filterOption={false}
+          onSearch={this.fetchUser}
+          onChange={this.handleChange}
+          style={{ width: '100%' }}
+        >
+          {data.map(d => (
+            <Option key={d.value}>{d.text}</Option>
+          ))}
+        </Select>
+        {
+          standardPartName === '' && <span style={{ color: 'red' }}>请输入配件名称！</span>
+        }
+      </section>
     );
   }
 }

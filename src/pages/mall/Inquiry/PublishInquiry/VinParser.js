@@ -9,6 +9,7 @@ export default class VinParser extends Component {
     super(props);
     this.state = {
     };
+    this.parsedNum = 0;
   }
 
   handleChange = (e) => {
@@ -16,7 +17,7 @@ export default class VinParser extends Component {
     const { onVinCodeChange = () => {} } = this.props;
     onVinCodeChange(vinCode);
     if (vinCode && vinCode.length === 17) {
-      this.parseVin(vinCode);
+      // this.parseVin(vinCode);
     }
   }
 
@@ -24,18 +25,21 @@ export default class VinParser extends Component {
     const { vehicleType } = this.props;
     if (vehicleType && vinCode) {
       if (vehicleType === '01') {
-        this.setState({ parseLoading: true });
-        this.parseCYC(vinCode);
+        this.setState({ parseLoading: true }, () => {
+          this.parseCYC(vinCode);
+        });
       }
       if (vehicleType === '02') {
-        this.setState({ parseLoading: true });
-        this.parseSYC(vinCode);
+        this.setState({ parseLoading: true }, () => {
+          this.parseSYC(vinCode);
+        });
       }
     }
   }
 
   parseCYC = (vinCode) => {
     this.setState({ parseLoading: false }, () => {
+      this.parsedNum++;
       const { onCarInfoChange = () => {} } = this.props;
       onCarInfoChange({
         carBrand: '奔驰乘用车',
@@ -45,6 +49,7 @@ export default class VinParser extends Component {
 
   parseSYC = (vinCode) => {
     this.setState({ parseLoading: false }, () => {
+      this.parsedNum++;
       const { onCarInfoChange = () => {} } = this.props;
       onCarInfoChange({
         carBrand: '奔驰商用车',
@@ -76,32 +81,30 @@ export default class VinParser extends Component {
             onChange={this.handleChange}
             maxLength={17}
           />
-          {
-            vcl === 17
-            && (
-              <Button onClick={this.parseVin} loading={parseLoading}>解析</Button>
-            )
-          }
+          <Button disabled={vcl !== 17} onClick={this.parseVin} loading={parseLoading}>解析</Button>
         </section>
         <section>
+          <div><span style={{ color: 'red' }}>{vinCode.length}</span>/17</div>
+          <div>
+            {
+              vcl === 0 && <span style={{ color: 'red' }}>请输入VIN码！</span>
+            }
+          </div>
           {
-            vcl === 17
-              ? (
-                carBrand
-                  ? (
-                    <span>
-                      { carBrand }
-                      <a onClick={this.showCarInfoSelector} style={{ marginLeft: 10 }}>修改</a>
-                    </span>
-                  ) : (
-                    <span>
-                      VIN码解析失败
-                      <a onClick={this.showCarInfoSelector} style={{ marginLeft: 10 }}>请选择车型</a>
-                    </span>
-                  )
-              ) : (
-                `${vinCode.length} / 17`
-              )
+            this.parsedNum > 0 && (
+              carBrand
+                ? (
+                  <span>
+                    { carBrand }
+                    <a onClick={this.showCarInfoSelector} style={{ marginLeft: 10 }}>修改</a>
+                  </span>
+                ) : (
+                  <span>
+                    VIN码解析失败
+                    <a onClick={this.showCarInfoSelector} style={{ marginLeft: 10 }}>请选择车型</a>
+                  </span>
+                )
+            )
           }
         </section>
         {
