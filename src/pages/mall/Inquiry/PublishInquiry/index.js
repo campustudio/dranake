@@ -30,6 +30,7 @@ import InsuranceOrder from './InsuranceOrder';
 import Invoice from './Invoice';
 import Vendors from './Vendors';
 import DraftListDrawer from './DraftListDrawer';
+import { getChildNodesByClassName } from '@libs';
 
 const { Option } = Select;
 const formItemLayout = {
@@ -97,6 +98,9 @@ class PublishInquiry extends Component {
 
   componentDidMount() {
     this.updateInquiryReducer({ partEnquiries: parts });
+    const child = getChildNodesByClassName();
+    console.log('==========================child: ', child);
+    console.log('==========================typeof child: ', typeof child);
   }
 
   updateInquiryReducer = (dataObjToUpdate) => {
@@ -220,7 +224,7 @@ class PublishInquiry extends Component {
     const { getFieldDecorator, getFieldsError } = form;
 
     return (
-      <section>
+      <section className="inquiry-form-section">
         <Form {...formItemLayout} onSubmit={this.handleSubmit}>
           <Form.Item wrapperCol={{ offset: 3 }}>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>

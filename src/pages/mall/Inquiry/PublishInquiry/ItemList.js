@@ -36,6 +36,7 @@ export default class ItemList extends Component {
           <PartSearchInput
             standardPartName={record.standardPartName}
             onItemChange={changedObj => this.onItemChange(changedObj, index)}
+            index={index}
           />
         ),
       },
@@ -104,7 +105,8 @@ export default class ItemList extends Component {
       age: 342,
       address: 'Sidney No. 1 Lake Park4',
       tags: ['cool', 'teacher'],
-      standardPartName: '大灯34',
+      // standardPartName: '大灯34',
+      standardPartName: '',
       // oeCode: '90892111221',
       oldNewMatchupList: [6, 2],
     };
