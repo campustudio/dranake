@@ -1,6 +1,5 @@
-## Installation
-Clone repo and run:
-
+## Running
+Clone repo then run
 ```sh
 yarn
 yarn start
@@ -8,46 +7,37 @@ yarn start
 
 ## Build
 ```sh
-yarn build:test
+yarn build
 ```
-
 ## Static Deploy
-直接举例子：假设nginx静态文件默认目录为系统目录
+For example, first dive into the server you need for deploying, if the default place of your nginx static files is
 `/usr/local/var/www`
-
-一般会存在如下文件：
+usually, blow files would be inside nginx by default
 ```
 /usr/local/var/www/index.html
 /usr/local/var/www/50x.html
 ```
-在此结构下，添加目录：
+now let's add this one
 `/usr/local/var/www/rspa/mall`
-
-针对测试环境，
-首先，项目克隆到服务器后，项目根目录下执行
-`yarn`
-安装所有依赖，
-成功后，
-将
+after this repo is cloned to server, run `yarn` to install all dependencies，after running
 ```sh
-yarn build:test
+yarn build
 ```
-打包后生成的`build`文件夹中所有资源放入
+a new folder named "build" will be generated under root directory, then you should remove all files inside "build" folder to
 `/usr/local/var/www/rspa/mall`
-目录下。
+then
 ```sh
 cd /usr/local/etc/nginx
 cat nginx.conf
 ```
-此时`nginx.conf`中存在默认配置
+now you will find blow code section inside `nginx.conf`
 ```sh
 location / {
   root   html;
   index  index.html index.htm;
 }
 ```
-在此配置下方，添加如下配置，
-
+under this section, add blow section
 ```sh
 location ~ ^/rspa/(?<subapp>\w+)/.* {
   root   html;
@@ -55,10 +45,10 @@ location ~ ^/rspa/(?<subapp>\w+)/.* {
   try_files  $uri $uri/ /rspa/$subapp/index.html;
 }
 ```
-保存并重启nginx，
-然后访问`domain/rspa/mall`
-即可访问登录页面。
+save `nginx.conf` then restart nginx, then access `your-domain/rspa/mall`
+your built-resources will be accessed based on the running nginx server now.
 
 ## API Deploy
-在nginx配置文件中添加相应api代理地址，API服务最好与静态资源放到同一域名下，此举可省略跨域配置。
+- add your api proxy address inside the nginx config file
+- api service and static resources are recommended to put under the same domain for omitting cross-domain configuration
 
