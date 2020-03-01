@@ -11,6 +11,8 @@ import * as serviceWorker from './shares/serviceWorker';
 import store, { history } from './shares/store';
 import './index.less';
 import LoginPanel from '@pages/admin/LoginPanel';
+import Home from '@pages/admin/Home';
+import CodingTest from '@pages/admin/CodingTest';
 import Main from './routes/main';
 import H5Main from './routes/h5main';
 import NotFound from '@components/NotFound';
@@ -25,7 +27,7 @@ class App extends Component {
           <ConnectedRouter history={history}>
             <BrowserRouter basename="/rspa/mall">
               <Switch>
-                <Route exact path="/" component={LoginPanel} />
+                <Route exact path="/" component={CodingTest} />
                 <Route exact path="/main" component={Main} />
                 {/* <Route exact path="/main" component={H5Main} /> */}
                 <Route component={NotFound} />
