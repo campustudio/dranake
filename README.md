@@ -49,6 +49,15 @@ save `nginx.conf` then restart nginx, then access `your-domain/rspa/mall`
 your built-resources will be accessed based on the running nginx server now.
 
 ## API Deploy
-- add your api proxy address inside the nginx config file
+- add your api proxy address into the nginx config file
 - api service and static resources are recommended to put under the same domain for omitting cross-domain configuration
 
+## Browser Compatibility
+###### CRA
+- all modern browsers, IE9+ requires polyfills
+(https://github.com/facebook/create-react-app/blob/master/packages/react-app-polyfill/README.md).
+###### Antd
+- for 3.x, modern browsers, IE9+(or(-> to be tested) IE11+? ) requires polyfills
+(https://3x.ant.design/docs/react/introduce-cn
+https://ant.design/docs/react/getting-started-cn#%E5%85%BC%E5%AE%B9%E6%80%A7
+https://babeljs.io/docs/en/babel-preset-env)
