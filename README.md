@@ -55,7 +55,8 @@ your built-resources will be accessed based on the running nginx server now.
 ## Browser Compatibility
 ###### CRA
 - all modern browsers, IE9+ requires polyfills
-(https://github.com/facebook/create-react-app/blob/master/packages/react-app-polyfill/README.md
+(https://create-react-app.dev/docs/supported-browsers-features
+https://github.com/facebook/create-react-app/blob/master/packages/react-app-polyfill/README.md
 https://browserl.ist/?q=%3E+0.2%25%2C+not+dead%2C+not+op_mini+all)
 ###### Antd
 - for 3.x, modern browsers, IE9+(or(-> to be tested) IE11+? ) requires polyfills
