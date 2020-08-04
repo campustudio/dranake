@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 // import Loader from 'react-stlloader-component';
 // import STLViewer from 'stl-viewer'
 import Jsc3dViewer from 'react-jsc3d';
+import moment from 'moment';
+
 /**
  * Coding Test Demos
  * 1. recursion
@@ -12,6 +14,11 @@ export default class CodingTest extends Component {
     super(props);
     this.state = {
     };
+  }
+
+  componentDidMount() {
+    console.log('moment() ', moment());
+    console.log('moment().format() ', moment().format('MM-DD-YYYY'));
   }
 
   render() {
