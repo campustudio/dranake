@@ -29,7 +29,7 @@ class App extends Component {
               <Switch>
                 <Route exact path="/" component={CodingTest} />
                 <Route exact path="/main" component={Main} />
-                {/* <Route exact path="/main" component={H5Main} /> */}
+                {/* <Route exact path="/rspa/mall/main" component={H5Main} /> */}
                 <Route component={NotFound} />
               </Switch>
             </BrowserRouter>
