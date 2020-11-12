@@ -27,6 +27,11 @@
     <title>DRANAKE</title>
     <!-- <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js"></script> -->
     <!-- <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script> -->
+    <!-- p5 -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/addons/p5.sound.min.js"></script> -->
+    <!-- ml5 -->
+    <script src="https://unpkg.com/ml5@0.6.0/dist/ml5.js"></script>
   </head>
   <!-- <body style="min-width: 1200px;"> -->
   <body>
@@ -47,8 +52,17 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-    <!-- <script type="module" src="./main1.js" /> -->
-    <!-- <stl-part-viewer src="./wheel.stl" /> -->
-    <!-- <script src="./objcre.js" /> -->
+    <!-- <script type="module" src="%PUBLIC_URL%/main1.js" /> -->
+    <!-- <stl-part-viewer src="%PUBLIC_URL%/wheel.stl" /> -->
+    <!-- <script src="%PUBLIC_URL%/objcre.js" /> -->
+    <h1>Image classification using MobileNet</h1>
+    <h3>
+      The MobileNet model labeled this as
+      <span id="result" style="color:red;">...</span>
+      with a confidence of
+      <span id="probability" style="color:red;">...</span>.
+    </h3>
+    <img src="%PUBLIC_URL%/images/bird2.png" id="image" width="400" />
+    <script src="%PUBLIC_URL%/sketch.js" />
   </body>
 </html>
