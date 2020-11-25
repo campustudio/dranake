@@ -59,9 +59,9 @@ class Main extends Component {
     return (
       <div>
         <NavHeader activeRoute={this.activeRoute} />
-        <Inquiry />
-        {/* <LogoBar activeRoute={this.activeRoute} /> */}
-        {/* { this.activeModule(itemType) } */}
+        {/* <Inquiry /> */}
+        <LogoBar activeRoute={this.activeRoute} />
+        { this.activeModule(itemType) }
       </div>
     );
   }
