@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import moment from 'moment';
+import VehicleAvatar from '@components/VehicleAvatar';
 
 /**
  * Coding Test Demos
@@ -21,6 +22,7 @@ export default class CodingTest extends Component {
     return (
       <div>
         CodingTest
+        <VehicleAvatar />
       </div>
     );
   }
