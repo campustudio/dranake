@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Card, WingBlank, WhiteSpace } from 'antd-mobile';
-import Avatar from '@h5components/Avatar';
+// import Avatar from '@h5components/Avatar';
 import '../h5c.less';
 
 const subscriptionPackageMapper = {
@@ -30,7 +30,9 @@ const InvitedUserCard = class extends Component {
         <Card>
           <Card.Body>
             <div className="flex jcfs aic">
-              <div style={{ marginRight: 10 }}><Avatar size={30} src={avatarUrl} /></div>
+              <div style={{ marginRight: 10 }}>
+                {/* <Avatar size={30} src={avatarUrl} /> */}
+                </div>
               <div>
                 <span>{`微信昵称：${nickName}`}</span>
                 <div>{`会员类型：${subscriptionPackageMapper[subscriptionPackage]}`}</div>

@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { Button, Icon, Toast } from 'antd-mobile';
 import PhoneInput from '@h5components/PhoneInput';
 import NumberInput from '@h5components/NumberInput';
-import Avatar from '@h5components/Avatar';
+// import Avatar from '@h5components/Avatar';
 import '../h5c.less';
 import './index.less';
 import logo from '@static/media/favicon.ico';
@@ -99,7 +99,7 @@ const LoginPanel = class extends Component {
         }
         <section>
           <div className="updown-space">
-            <Avatar size={80} src={logo} />
+            {/* <Avatar size={80} src={logo} /> */}
           </div>
           <div className="updown-space title">
             <div>车件儿推广项目</div>

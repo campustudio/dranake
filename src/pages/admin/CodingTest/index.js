@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import VehicleAvatar from '@components/VehicleAvatar';
+import Tesla from './Tesla';
 
 /**
  * Coding Test Demos
@@ -14,8 +15,8 @@ export default class CodingTest extends Component {
   }
 
   componentDidMount() {
-    console.log('moment() ', moment());
-    console.log('moment().format() ', moment().format('YYYY-MM-DD'));
+    // console.log('moment() ', moment());
+    // console.log('moment().format('YYYY-MM-DD') ', moment().format('YYYY-MM-DD'));
   }
 
   render() {

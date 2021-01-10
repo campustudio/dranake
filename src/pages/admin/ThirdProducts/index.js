@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Table, Divider, Tag, Card } from 'antd';
-import Avatar from '@h5components/Avatar';
+// import Avatar from '@h5components/Avatar';
 import logo from '@static/media/favicon.ico';
 
 const data = [
@@ -35,7 +35,7 @@ export default class ThirdProducts extends Component {
         dataIndex: 'pid',
         render: (text, record) => (
           <span>
-            <Avatar size={30} src={logo} margin={0} />
+            {/* <Avatar size={30} src={logo} margin={0} /> */}
           </span>
         ),
       },

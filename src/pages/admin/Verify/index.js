@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Table, Divider, Modal, Card } from 'antd';
-import Avatar from '@h5components/Avatar';
 import logo from '@static/media/favicon.ico';
 
 const data = [
