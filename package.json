@@ -23,7 +23,7 @@
     "prop-types": "^15.7.2",
     "qs": "^6.7.0",
     "rc-form": "^2.4.5",
-    "react": "^16.5.2",
+    "react": "^16.14.0",
     "react-app-rewired": "^2.1.3",
     "react-dom": "^16.5.2",
     "react-jsc3d": "^0.1.7",
