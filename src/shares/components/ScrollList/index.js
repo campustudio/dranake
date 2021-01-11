@@ -3,9 +3,11 @@ import axios from 'axios';
 import './style.css';
 
 const fetchUsers = () => {
-  axios.get('https://randomuser.me/api')
-    .then((res) => {
-      console.log(res);
+  return axios.get('https://randomuser.me/api?results=5')
+    .then(({ data }) => {
+      console.log('data: ', data);
+      // return JSON.stringify(data, null, 2);
+      return data.results;
     })
     .catch((error) => {
       if (error.response) {
@@ -28,12 +30,30 @@ const fetchUsers = () => {
 
 const scrollList = () => {
   const [counter, setCounter] = useState(0);
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    fetchUsers().then(rs => setUsers(rs));
+  }, []);
 
   return (
     <div className="list-container">
       <p>{counter}</p>
       <button type="button" onClick={() => setCounter(counter + 1)}>Increment</button>
-      <button type="button" onClick={() => fetchUsers()}>Fetch Users</button>
+      <ul>
+        {
+          users.map((u, i) => {
+            const { picture: { thumbnail }, login: { username } } = u;
+
+            return (
+              <li key={i}>
+                <img src={thumbnail} alt="thumbnail" />
+                {username}
+              </li>
+            )
+          })
+        }
+      </ul>
     </div>
   );
 };
