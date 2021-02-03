@@ -23,7 +23,8 @@ export default class CodingTest extends Component {
   render() {
     return (
       <div>
-        CodingTest
+        <p>CodingTest</p>
+        <hr />
         <ScrollList />
       </div>
     );
